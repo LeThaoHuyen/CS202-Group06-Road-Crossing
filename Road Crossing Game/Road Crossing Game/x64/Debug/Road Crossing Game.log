@@ -1,6 +1,0 @@
-﻿  Buffer.cpp
-  GameObject.cpp
-D:\CS202-Group06-Road-Crossing\Road Crossing Game\Road Crossing Game\GameObject.cpp(11,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Main.cpp
-  Generating Code...
-  Road Crossing Game.vcxproj -> D:\CS202-Group06-Road-Crossing\Road Crossing Game\x64\Debug\Road Crossing Game.exe
