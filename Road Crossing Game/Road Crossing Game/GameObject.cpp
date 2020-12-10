@@ -48,7 +48,9 @@ bool GameObject::checkCollision(int x, int y)
 
 bool GameObject::isOnScreen(Buffer& buffer)
 {
-	return false;
+	if (mX > buffer.bufferWidth() - 1)
+		return false;
+	return true;
 }
 
 int GameObject::getLength()
