@@ -14,11 +14,11 @@ LaneManager::LaneManager(int level, int laneWidth)
 		}
 		else if (i == 1)
 		{
-			lanes[i] = new Lane(level, "dinasaur", laneWidth * (index + 2));
+			lanes[i] = new Lane(level, "dinosaur", laneWidth * (index + 2));
 		}
 		else if (i == 2)
 		{
-			lanes[i] = new Lane(level, "dinasaur", laneWidth * (index + 2)); // replace with car
+			lanes[i] = new Lane(level, "dinosaur", laneWidth * (index + 2)); // replace with car
 		}
 		else
 		{

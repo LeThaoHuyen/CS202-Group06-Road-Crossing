@@ -7,9 +7,9 @@ Lane::Lane(int level, string type, int lanePart)
 
 void Lane::add()
 {
-	if (objectType == "dinasaur")
+	if (objectType == "dinosaur")
 	{
-		list.insert(list.begin(), new Dinasaur(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
+		list.insert(list.begin(), new Dinosaur(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
 	}
 	else if (objectType == "bird")
 	{
@@ -40,9 +40,9 @@ void Lane::createObject(int level, string type, int _lanePart)
 		if (coord >= 60) {
 			break;
 		}
-		if (type == "dinasaur")
+		if (type == "dinosaur")
 		{
-			list.push_back(new Dinasaur(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Dinosaur(coord, lanePart - 2, laneSpeed));
 		}
 		else if (type == "bird")
 		{

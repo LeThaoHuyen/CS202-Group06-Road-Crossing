@@ -142,7 +142,7 @@
     <ClInclude Include="Bird.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Console.h" />
-    <ClInclude Include="Dinasaur.h" />
+    <ClInclude Include="Dinosaur.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Lane.h" />
     <ClInclude Include="LaneManager.h" />
@@ -151,7 +151,7 @@
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="Dinasaur.cpp" />
+    <ClCompile Include="Dinosaur.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Lane.cpp" />
     <ClCompile Include="LaneManager.cpp" />

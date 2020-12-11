@@ -7,7 +7,7 @@
 
 
 vector<char> Bird::birdShape = { (char)223, (char)220, (char)223 };
-vector<char> Dinasaur::dinaShape = { (char)220, (char)219, (char)223 };
+vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
 
 // Game size
 const int consoleWidth = 800;

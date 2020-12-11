@@ -4,7 +4,7 @@
 #include <vector>
 #include "Buffer.h"
 #include "Bird.h"
-#include "Dinasaur.h"
+#include "Dinosaur.h"
 
 using namespace std;
 class Lane
