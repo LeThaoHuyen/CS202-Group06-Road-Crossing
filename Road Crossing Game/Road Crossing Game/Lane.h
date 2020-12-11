@@ -15,7 +15,8 @@ private:
 	string objectType;
 	int lanePart;
 public:
-	Lane(int level, string type, int lanePart);
+	Lane(){}
+	Lane(int level, string type, int _lanePart);
 	void add();
 	void createObject(int level, string type, int lanePart);
 	bool checkCollision(int, int);

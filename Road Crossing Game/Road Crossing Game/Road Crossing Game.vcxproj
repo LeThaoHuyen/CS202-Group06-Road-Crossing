@@ -145,6 +145,7 @@
     <ClInclude Include="Dinasaur.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Lane.h" />
+    <ClInclude Include="LaneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="Dinasaur.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Lane.cpp" />
+    <ClCompile Include="LaneManager.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

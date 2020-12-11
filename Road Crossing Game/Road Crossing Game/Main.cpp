@@ -3,6 +3,7 @@
 #include "Buffer.h"
 #include "GameObject.h"
 #include "Lane.h"
+#include "LaneManager.h"
 
 
 vector<char> Bird::birdShape = { (char)223, (char)220, (char)223 };
@@ -20,16 +21,16 @@ int main()
 {
 	Buffer screen(consoleWidth, consoleHeight, frameWidth, frameHeight);
 
-	Lane lane(1, "bird", laneWidth * 2);
-
+	LaneManager manager(1, laneWidth);
+	
 	screen.displayFrame();
 	
 	
 	for (int i = 0; i < 50; i++)
 	{
-		lane.update(screen);
+		manager.update(screen);
 		screen.update();
-		lane.draw(screen);
+		manager.draw(screen);
 		screen.display();
 		Sleep(1000);
 	}

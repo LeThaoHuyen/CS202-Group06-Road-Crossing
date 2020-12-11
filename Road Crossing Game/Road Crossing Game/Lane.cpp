@@ -9,11 +9,11 @@ void Lane::add()
 {
 	if (objectType == "dinasaur")
 	{
-		list.insert(list.begin(), new Dinasaur(-laneSpeed + 1 + rand() % laneSpeed, lanePart - 2, laneSpeed));
+		list.insert(list.begin(), new Dinasaur(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
 	}
 	else if (objectType == "bird")
 	{
-		list.insert(list.begin(), new Bird(-laneSpeed + 1 + rand() % laneSpeed, lanePart - 3, laneSpeed));
+		list.insert(list.begin(), new Bird(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 3, laneSpeed));
 	}
 
 	else if (objectType == "car")
@@ -26,9 +26,9 @@ void Lane::add()
 	}
 }
 
-void Lane::createObject(int level, string type, int lanePart)
+void Lane::createObject(int level, string type, int _lanePart)
 {
-	this->lanePart = lanePart;
+	lanePart = _lanePart;
 	objectType = type;
 	laneSpeed = 5 * level; // 
 
@@ -36,9 +36,8 @@ void Lane::createObject(int level, string type, int lanePart)
 	for (int i = 0; i < 60; i++)
 	{
 		// avoid overlapping between 2 consecutive objects
-		coord = i == 0 ? rand() % 23 + 1 : list[i - 1]->getX() + list[i - 1]->getLength() + (rand() % 23 + 1);
-		if (coord >= 60) 
-		{
+		coord = i == 0 ? rand() % 23 + 2 : list[i - 1]->getX() + list[i - 1]->getLength() + (rand() % 23 + 2);
+		if (coord >= 60) {
 			break;
 		}
 		if (type == "dinasaur")
