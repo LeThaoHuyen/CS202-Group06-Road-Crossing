@@ -141,21 +141,25 @@
   <ItemGroup>
     <ClInclude Include="Bird.h" />
     <ClInclude Include="Buffer.h" />
+    <ClInclude Include="Car.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Dinosaur.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Lane.h" />
     <ClInclude Include="LaneManager.h" />
+    <ClInclude Include="Truck.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="Car.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Dinosaur.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Lane.cpp" />
     <ClCompile Include="LaneManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Truck.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
