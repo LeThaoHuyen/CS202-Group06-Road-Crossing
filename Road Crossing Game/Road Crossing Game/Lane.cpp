@@ -15,14 +15,13 @@ void Lane::add()
 	{
 		list.insert(list.begin(), new Bird(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 3, laneSpeed));
 	}
-
 	else if (objectType == "car")
 	{
-		//
+		list.insert(list.begin(), new Car(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 1, laneSpeed));
 	}
 	else if (objectType == "truck")
 	{
-		//
+		list.insert(list.begin(), new Truck(-laneSpeed + 2 + rand() % laneSpeed, lanePart, laneSpeed));
 	}
 }
 
@@ -30,7 +29,7 @@ void Lane::createObject(int level, string type, int _lanePart)
 {
 	lanePart = _lanePart;
 	objectType = type;
-	laneSpeed = 5 * level; // 
+	laneSpeed = 5 * level;
 
 	int coord = -1;
 	for (int i = 0; i < 60; i++)
@@ -50,11 +49,11 @@ void Lane::createObject(int level, string type, int _lanePart)
 		}
 		else if (type == "car")
 		{
-			//
+			list.push_back(new Car(coord, lanePart - 1, laneSpeed));
 		}
 		else if (type == "truck")
 		{
-			//
+			list.push_back(new Truck(coord, lanePart, laneSpeed));
 		}
 	}
 }

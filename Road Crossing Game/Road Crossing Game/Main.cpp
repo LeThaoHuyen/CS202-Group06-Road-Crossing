@@ -8,6 +8,8 @@
 
 vector<char> Bird::birdShape = { (char)223, (char)220, (char)223 };
 vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
+vector<char> Car::carShape = { (char)221, (char)223, (char)222 };
+vector<char> Truck::truckShape = { (char)219, (char)219, (char)220 };
 
 // Game size
 const int consoleWidth = 800;

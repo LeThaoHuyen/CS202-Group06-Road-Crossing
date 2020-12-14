@@ -16,7 +16,6 @@ void GameObject::move(int x, int y)
 {
 	mX = x;
 	mY = y;
-
 }
 
 void GameObject::move()

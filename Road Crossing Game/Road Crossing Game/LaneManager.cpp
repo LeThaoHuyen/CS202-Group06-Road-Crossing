@@ -18,16 +18,13 @@ LaneManager::LaneManager(int level, int laneWidth)
 		}
 		else if (i == 2)
 		{
-			lanes[i] = new Lane(level, "dinosaur", laneWidth * (index + 2)); // replace with car
+			lanes[i] = new Lane(level, "car", laneWidth * (index + 2)); // replace with car
 		}
 		else
 		{
-			lanes[i] = new Lane(level, "bird", laneWidth * (index + 2)); // replace with truck
+			lanes[i] = new Lane(level, "truck", laneWidth * (index + 2)); // replace with truck
 		}
-
 	}
-
-
 }
 
 void LaneManager::update(Buffer& buffer)

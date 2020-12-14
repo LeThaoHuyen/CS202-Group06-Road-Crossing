@@ -5,6 +5,8 @@
 #include "Buffer.h"
 #include "Bird.h"
 #include "Dinosaur.h"
+#include "Car.h"
+#include "Truck.h"
 
 using namespace std;
 class Lane
