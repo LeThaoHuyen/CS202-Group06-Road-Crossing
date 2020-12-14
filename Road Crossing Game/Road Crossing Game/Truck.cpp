@@ -1,6 +1,6 @@
 #include "Truck.h"
 
-vector<char> Truck::truckShape;
+
 
 Truck::Truck(int x, int y, int s) : GameObject(x, y, truckShape, s) {}
 

@@ -55,7 +55,7 @@ void Buffer::display()
 
 void Buffer::updateBuffer(int x, int y, char t)
 {
-	board[x][y] = t;
+	board[x + dx][y + dy] = t;
 }
 void Buffer::update() {
 	for (int i = 0; i < frame_width; i++) 

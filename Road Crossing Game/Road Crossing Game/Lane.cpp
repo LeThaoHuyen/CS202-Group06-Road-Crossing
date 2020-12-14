@@ -17,11 +17,11 @@ void Lane::add()
 	}
 	else if (objectType == "car")
 	{
-		list.insert(list.begin(), new Car(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 1, laneSpeed));
+		list.insert(list.begin(), new Car(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
 	}
 	else if (objectType == "truck")
 	{
-		list.insert(list.begin(), new Truck(-laneSpeed + 2 + rand() % laneSpeed, lanePart, laneSpeed));
+		list.insert(list.begin(), new Truck(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
 	}
 }
 
@@ -49,11 +49,11 @@ void Lane::createObject(int level, string type, int _lanePart)
 		}
 		else if (type == "car")
 		{
-			list.push_back(new Car(coord, lanePart - 1, laneSpeed));
+			list.push_back(new Car(coord, lanePart - 2, laneSpeed));
 		}
 		else if (type == "truck")
 		{
-			list.push_back(new Truck(coord, lanePart, laneSpeed));
+			list.push_back(new Truck(coord, lanePart - 2, laneSpeed));
 		}
 	}
 }
