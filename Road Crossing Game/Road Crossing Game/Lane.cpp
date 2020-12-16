@@ -110,3 +110,45 @@ Lane::~Lane()
 		delete list[i];
 	}
 }
+
+void Lane::init(int level, string type, int _lanePart)
+{
+	lanePart = _lanePart;
+	objectType = type;
+	laneSpeed = 5 * level;
+
+	int coord = -1;
+	for (int i = 0; i < 60; i++)
+	{
+		// avoid overlapping between 2 consecutive objects
+		coord = i == 0 ? rand() % 23 + 2 : list[i - 1]->getX() + list[i - 1]->getLength() + (rand() % 23 + 2);
+		if (coord >= 60) {
+			break;
+		}
+		if (type == "dinosaur")
+		{
+			list.push_back(new Dinosaur(coord, lanePart - 2, laneSpeed));
+		}
+		else if (type == "bird")
+		{
+			list.push_back(new Bird(coord, lanePart - 3, laneSpeed));
+		}
+		else if (type == "car")
+		{
+			list.push_back(new Car(coord, lanePart - 2, laneSpeed));
+		}
+		else if (type == "truck")
+		{
+			list.push_back(new Truck(coord, lanePart - 2, laneSpeed));
+		}
+	}
+}
+
+void Lane::clear()
+{
+	for (int i = 0; i < list.size(); i++)
+	{
+		delete list[i];
+	}
+	list.resize(0);
+}

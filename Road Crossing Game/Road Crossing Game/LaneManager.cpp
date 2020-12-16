@@ -60,6 +60,34 @@ bool LaneManager::isVehicleStopped()
 	return trafficLight == "red";
 }
 
+void LaneManager::init(int level, int laneWidth)
+{
+	int random = rand() % 4;
+	lanes.resize(4);
+	int index;
+	for (int i = 0; i < 4; i++)
+	{
+		index = random + i < 4 ? random + i : (random + i) % 4;
+		if (i == 0)
+		{
+			lanes[i] = new Lane(level, "bird", laneWidth * (index + 2));
+		}
+		else if (i == 1)
+		{
+			lanes[i] = new Lane(level, "dinosaur", laneWidth * (index + 2));
+		}
+		else if (i == 2)
+		{
+			lanes[i] = new Lane(level, "car", laneWidth * (index + 2)); // replace with car
+		}
+		else
+		{
+			lanes[i] = new Lane(level, "truck", laneWidth * (index + 2)); // replace with truck
+		}
+	}
+
+}
+
 
 
 LaneManager::~LaneManager()
@@ -67,5 +95,14 @@ LaneManager::~LaneManager()
 	for (int i = 0; i < lanes.size(); i++)
 	{
 		delete lanes[i];
+	}
+}
+
+
+void LaneManager::clear()
+{
+	for (int i = 0; i < lanes.size(); i++)
+	{
+		lanes[i]->clear();
 	}
 }

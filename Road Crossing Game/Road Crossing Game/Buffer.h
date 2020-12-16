@@ -14,6 +14,7 @@ private:
 
 	
 public:
+	Buffer(){}
 	Buffer(int, int, int, int);
 	void display();
 	void updateBuffer(int x, int y, char t);
@@ -21,6 +22,7 @@ public:
 	void update();
 	void displayFrame();
 	int bufferWidth() { return frame_width; }
+	void init(int gw, int gh, int fw, int fh);
 
 };
 

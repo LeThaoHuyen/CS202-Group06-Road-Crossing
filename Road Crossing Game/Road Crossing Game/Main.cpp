@@ -41,10 +41,7 @@ int main()
 	{
 		manager.update(screen);
 		p.Up();
-		if (manager.checkCollision(p.getX(), p.getY()))
-		{
-			p.Dead();
-		}
+		
 
 		screen.update();
 		manager.draw(screen);

@@ -26,5 +26,7 @@ public:
 	void changeSpeed(int speed);
 	void update(Buffer& buffer);
 	string type();
+	void init(int level, string type, int _lanePart);
+	void clear();
 	~Lane();
 };
