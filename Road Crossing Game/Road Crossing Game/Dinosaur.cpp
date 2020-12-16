@@ -2,5 +2,5 @@
 
 void Dinosaur::makeSound()
 {
-	cout << "Gru Gru" << endl;
+	PlaySound("/Sound/dino.wav", NULL, SND_SYNC);
 }

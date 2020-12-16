@@ -2,5 +2,5 @@
 
 void Bird::makeSound()
 {
-	cout << "Wa Wa" << endl;
+	PlaySound("/Sound/bird.wav", NULL, SND_SYNC);
 }

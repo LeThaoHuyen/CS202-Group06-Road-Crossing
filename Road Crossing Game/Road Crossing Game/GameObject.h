@@ -1,7 +1,12 @@
 #pragma once
+#pragma comment(lib, "winmm.lib")
 #include <iostream>
-#include "Buffer.h"
 #include <vector>
+#include <string>
+#include <cstring>
+#include <windows.h>
+#include "Buffer.h"
+
 class GameObject
 {
 private:
@@ -24,6 +29,5 @@ public:
 	int getSpeed();
 	void changeSpeed(int );
 	void setX(int x) { mX = x; }
-
 };
 
