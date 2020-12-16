@@ -2,5 +2,5 @@
 
 void Bird::makeSound()
 {
-	PlaySound("/Sound/bird.wav", NULL, SND_SYNC);
+	//PlaySound("/Sound/bird.wav", NULL, SND_SYNC);
 }
