@@ -1,7 +1,7 @@
 #pragma once
 #include"LaneManager.h"
 #include"People.h"
-#include<thread>
+
 
 // Game size
 const int consoleWidth = 800;
@@ -20,21 +20,21 @@ private:
 	int currentLevel;
 	int isRunning;
 
-	void clearGame();
-	void copyGame(const Game&);
-public:
-	Game();
-	Game(int level);
-	Game(const Game&);
-	~Game();
-
-public:
-	void newGame();
+//	void clearGame();
+//	void copyGame(const Game&);
+//public:
+//	Game();
+//	Game(int level);
+//	Game(const Game&);
+//	~Game();
+//
+//public:
+	/*void newGame();
 	void resetGame();
 
 	void pauseGame();
 	void saveGame();
 	void loadGame();
-	void showMenu();
+	void showMenu();*/
 };
 

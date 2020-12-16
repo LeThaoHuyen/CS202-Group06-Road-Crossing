@@ -4,5 +4,5 @@ Truck::~Truck() {}
 
 void Truck::makeSound()
 {
-	//PlaySound("/Sound/truck.wav", NULL, SND_SYNC);
+	PlaySound(TEXT("Sound/truck.wav"), NULL, SND_SYNC);
 }

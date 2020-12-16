@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-using namespace std;
+//using namespace std;
 
 class Dinosaur : public GameObject
 {

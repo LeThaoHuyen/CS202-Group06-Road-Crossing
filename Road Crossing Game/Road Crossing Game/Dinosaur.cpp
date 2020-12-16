@@ -2,5 +2,5 @@
 
 void Dinosaur::makeSound()
 {
-	//PlaySound("/Sound/dino.wav", NULL, SND_SYNC);
+	PlaySound(TEXT("Sound/dino.wav"), NULL, SND_SYNC);
 }
