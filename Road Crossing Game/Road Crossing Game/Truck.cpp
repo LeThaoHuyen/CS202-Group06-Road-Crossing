@@ -1,9 +1,5 @@
 #include "Truck.h"
 
-
-
-Truck::Truck(int x, int y, int s) : GameObject(x, y, truckShape, s) {}
-
 Truck::~Truck() {}
 
 void Truck::makeSound()

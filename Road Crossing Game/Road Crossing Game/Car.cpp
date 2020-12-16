@@ -1,12 +1,9 @@
 #include "Car.h"
-
-
-
-Car::Car(int x, int y, int s) : GameObject(x, y, carShape, s) {}
+#include <conio.h>
 
 Car::~Car() {}
 
 void Car::makeSound()
 {
-	cout << "In In" << endl;
+	mciSendStringA("play nen.mp3", 0, NULL, 0);
 }
