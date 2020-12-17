@@ -78,6 +78,10 @@ void Lane::draw(Buffer& buffer)
 void Lane::changeSpeed(int speed)
 {
 	laneSpeed = speed;
+	for (int i = 0; i < list.size(); i++)
+	{
+		list[i]->changeSpeed(laneSpeed);
+	}
 }
 
 void Lane::update(Buffer& buffer)

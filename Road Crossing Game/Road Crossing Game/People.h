@@ -8,6 +8,7 @@ public:
 	People();
 	People(int w, int h);
 	~People();
+	void init(int, int);
 	void Up();
 	void Left(Buffer & buffer);
 	void Right(Buffer & buffer);

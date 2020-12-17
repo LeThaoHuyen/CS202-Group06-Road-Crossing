@@ -20,6 +20,8 @@ public:
 	bool isVehicleStopped();
 	void init(int level, int laneWidth);
 	void clear();
+	void stopVehicles();
+	void moveVehicles(int level);
 	~LaneManager();
 
 };

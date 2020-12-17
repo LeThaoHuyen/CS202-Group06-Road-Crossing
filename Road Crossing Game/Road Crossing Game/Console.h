@@ -24,7 +24,8 @@ enum ColorCode {
 #define key_UpArrow		72
 #define key_LeftArrow	75
 #define key_RightArrow	77
-
+#define key_Pause       112
+#define key_UnPause     117
 class Console
 {
 public:
@@ -40,6 +41,7 @@ public:
 	Console(int, int);
 	~Console();
 
+	void init(int, int);
 	void setTextColor(ColorCode color);
 	void gotoXY(int x, int y);
 	void fixConsoleWindow();

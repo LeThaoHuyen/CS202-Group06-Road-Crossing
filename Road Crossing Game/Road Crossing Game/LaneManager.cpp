@@ -106,3 +106,20 @@ void LaneManager::clear()
 		lanes[i]->clear();
 	}
 }
+
+void LaneManager::stopVehicles()
+{
+	for (int i = 0; i < lanes.size(); i++)
+	{
+		if (lanes[i]->type() == "car" || lanes[i]->type() == "truck")
+			lanes[i]->changeSpeed(0);
+	}
+}
+
+void LaneManager::moveVehicles(int level)
+{
+	for (int i = 0; i < lanes.size(); i++) {
+		if (lanes[i]->type() == "car" || lanes[i]->type() == "truck")
+			lanes[i]->changeSpeed(level * 5);
+	}
+}

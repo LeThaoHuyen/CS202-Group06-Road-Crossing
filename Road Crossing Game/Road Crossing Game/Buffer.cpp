@@ -90,6 +90,10 @@ void Buffer::displayFrame()
 
 void Buffer::init(int gw, int gh, int fw, int fh)
 {
+	frame_width = fw;
+	frame_height = fh;
+	console.init(gw, gh);
+
 	console.fixConsoleWindow();
 
 	// game_width, game_height are always greater than frame_width, frame_height;

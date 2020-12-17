@@ -1,7 +1,8 @@
 #pragma once
 #include"LaneManager.h"
 #include"People.h"
-
+#include<fstream>
+#include<thread>
 
 // Game size
 const int consoleWidth = 800;
@@ -16,25 +17,39 @@ public:
 private:
 	Buffer screen;
 	LaneManager laneManager;
-	People people;
+	People player;
 	int currentLevel;
-	int isRunning;
+	int m_isRunning;
 
-//	void clearGame();
-//	void copyGame(const Game&);
-//public:
-//	Game();
-//	Game(int level);
-//	Game(const Game&);
-//	~Game();
-//
-//public:
-	/*void newGame();
+	void clearGame();
+	//void copyGame(const Game&);
+public:
+	Game();
+	Game(int level);
+	Game(const Game&);
+	~Game();
+
+public:
+	bool isRunning() {
+		return m_isRunning;
+	}
+
+	int getLevel() {
+		return currentLevel;
+	}
+
+	void newGame(int level);
 	void resetGame();
+	void drawGame();
 
 	void pauseGame();
+	void resumeGame();
+
 	void saveGame();
 	void loadGame();
-	void showMenu();*/
+
+	void showMenu();
+	
+	void exitGame(thread*game);
 };
 

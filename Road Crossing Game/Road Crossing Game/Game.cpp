@@ -1,24 +1,84 @@
-//#include "Game.h"
-////void Game:: clearGame() {}
-//
-//Game::Game() {
-//	
-//}
-//Game::Game (int level) {
-//	
-//}
-//Game::Game (const Game& other) {
-//	
-//}
-//Game::~Game() {}
-//
-//
-//void Game::resetGame() {
-//	clearGame();
-//	
-//
-//
-//}
-//void Game::pauseGame() {
-//
-//}
+#include "Game.h"
+
+Game::Game() {
+	screen.init(consoleWidth, consoleHeight, frameWidth, frameHeight);
+	laneManager.init(1, laneWidth);
+	player.init(frameWidth, frameHeight - 2);
+	currentLevel = 1;
+	m_isRunning = true;
+}
+Game::Game (int level) {
+	screen.init(consoleWidth, consoleHeight, frameWidth, frameHeight);
+	laneManager.init(level, laneWidth);
+	player.init(frameWidth, frameHeight - 2);
+	currentLevel = level;
+	m_isRunning = true;
+}
+
+Game::~Game() {}
+
+void Game::clearGame() {
+	laneManager.clear();
+	screen.update();
+}
+
+void Game::resetGame() {
+	clearGame();
+	m_isRunning = true;
+	newGame(currentLevel);
+}
+
+void Game::newGame(int level) {
+	currentLevel = level;
+	m_isRunning = true;
+	laneManager.init(currentLevel, laneWidth);
+	screen.displayFrame();
+	screen.update();
+	laneManager.draw(screen);
+	player.draw(screen);
+	drawGame();
+}
+
+void Game::saveGame() {
+	ofstream out;
+	out.open("save.txt");
+	if (out.is_open()) {
+		out << currentLevel;
+	}
+}
+
+void Game::loadGame() {
+	ifstream in;
+	in.open("save.txt");
+	int level = 1;
+	if (in.is_open()) {
+		in >> level;
+	}
+	newGame(level);
+}
+
+void Game::pauseGame() {
+	m_isRunning = false;
+}
+
+void Game::resumeGame() {
+	m_isRunning = true;
+}
+
+void Game::drawGame() {
+	laneManager.update(screen);
+	screen.update();
+	laneManager.draw(screen);
+	player.draw(screen);
+	screen.display();
+}
+
+void Game::exitGame(thread* game) {
+	m_isRunning = false;
+	game->join();
+}
+
+void showMenu() {
+
+}
+

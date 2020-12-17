@@ -33,6 +33,26 @@ Console::~Console(){
 
 }
 
+void Console::init(int width, int height) {
+	HWND console = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console, &r);
+	MoveWindow(console, r.left, r.top, width, height, TRUE);
+
+	// modified --------------------------------------------
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	int columns, rows;
+
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+	columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+	rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+
+	int size = columns * 1000 + rows;
+
+	c_width = size / 1000;
+	c_height = size % 1000;
+}
+
 
 void Console::printString(string s, int row, int begin, int end, size_t cursorPos, size_t cursorPosConsole) {
 	hideCursor();

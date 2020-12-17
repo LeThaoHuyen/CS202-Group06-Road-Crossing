@@ -18,6 +18,16 @@ People::People(int w, int h)
 	speedX = 5;
 	speedY = (h + 2) / 6;
 }
+
+void People::init(int w, int h) {
+	mState = true;
+	mY = h;
+	mX = w / 2;
+	shape = "";
+	shape += (char)220;
+	speedX = 5;
+	speedY = (h + 2) / 6;
+}
 void People::Up()
 {
 	mY -= speedY;
