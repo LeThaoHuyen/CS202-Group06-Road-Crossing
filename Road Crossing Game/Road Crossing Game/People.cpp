@@ -14,7 +14,9 @@ People::People(int w, int h)
 	mY = h;
 	mX = w / 2;
 	shape = "";
-	shape += (char)220;
+	shape += (char)187;
+	//shape += (char)223;
+	shape += (char)201;
 	speedX = 5;
 	speedY = (h + 2) / 6;
 }
@@ -24,7 +26,9 @@ void People::init(int w, int h) {
 	mY = h;
 	mX = w / 2;
 	shape = "";
-	shape += (char)220;
+	shape += (char)187;
+	//shape += (char)223;
+	shape += (char)201;
 	speedX = 5;
 	speedY = (h + 2) / 6;
 }
@@ -74,10 +78,7 @@ string People::getShape()
 }
 void People :: draw(Buffer& buffer)
 {
-	if (isDead())
-		buffer.updateBuffer(mX + 2, mY, shape[0]);
-	else
-		buffer.updateBuffer(mX, mY, shape[0]);
+	buffer.updateBuffer(mX, mY, shape, 0, Green);
 }
 
 bool People :: isOnScreen(Buffer& buffer)

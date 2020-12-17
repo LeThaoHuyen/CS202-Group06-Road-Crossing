@@ -8,7 +8,7 @@ private:
 	string sound;
 	static vector<char> birdShape;
 public:
-	Bird(int x, int y, int s) : GameObject(x, y, Bird::birdShape, s) {}
+	Bird(int x, int y, int s, ColorCode code) : GameObject(x, y, Bird::birdShape, s, code) {}
 	~Bird() {}
 	void makeSound();
 };

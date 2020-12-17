@@ -10,16 +10,19 @@ Buffer::Buffer(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(fw)
 	dx = (game_width - frame_width) / 2 - 1;
 	dy = (game_height - frame_height) / 2 - 1;
 	board.resize(game_width);
+	color.resize(game_width);
 
 	for (int i = 0; i < game_width; i++) 
 	{
 		board[i].resize(game_height);
+		color[i].resize(game_height);
 	}
 	for (int i = 0; i < game_width; i++) 
 	{
 		for (int j = 0; j < game_height; j++) 
 		{
 			board[i][j] = (char)32;
+			color[i][j] = Black;
 		}
 	}
 	for (int i = 0; i < frame_width; i++) 
@@ -27,11 +30,20 @@ Buffer::Buffer(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(fw)
 		for (int j = 0; j < frame_height; j++) 
 		{
 			if (i == 0 || j == 0 || i == frame_width - 1 || j == frame_height - 1)
+			{
 				board[i + dx][j + dy] = '-';
+				color[i + dx][j + dy] = Yellow;
+			}
 			else if (6 * (j + 1) % frame_height == 0)
+			{
 				board[i + dx][j + dy] = '-';
+				color[i + dx][j + dy] = White;
+			}
 			else
+			{
 				board[i + dx][j + dy] = (char)32;
+				color[i + dx][j + dy] = Black;
+			}
 		}
 	}
 
@@ -46,6 +58,7 @@ void Buffer::display()
 			if (board[i + dx][j + dy] != '-') 
 			{
 				console.gotoXY(i + dx, j + dy);
+				console.setTextColor(color[i + dx][j + dy]);
 				std::cout << board[i + dx][j + dy];
 			}
 		}
@@ -82,6 +95,7 @@ void Buffer::displayFrame()
 			if (board[i + dx][j + dy] == '-') 
 			{
 				console.gotoXY(i + dx, j + dy);
+				console.setTextColor(color[i + dx][j + dy]);
 				std::cout << board[i + dx][j + dy];
 			}
 		}
@@ -102,16 +116,19 @@ void Buffer::init(int gw, int gh, int fw, int fh)
 	dx = (game_width - frame_width) / 2 - 1;
 	dy = (game_height - frame_height) / 2 - 1;
 	board.resize(game_width);
+	color.resize(game_width);
 
 	for (int i = 0; i < game_width; i++)
 	{
 		board[i].resize(game_height);
+		color[i].resize(game_height);
 	}
 	for (int i = 0; i < game_width; i++)
 	{
 		for (int j = 0; j < game_height; j++)
 		{
 			board[i][j] = (char)32;
+			color[i][j] = Black;
 		}
 	}
 	for (int i = 0; i < frame_width; i++)
@@ -119,14 +136,29 @@ void Buffer::init(int gw, int gh, int fw, int fh)
 		for (int j = 0; j < frame_height; j++)
 		{
 			if (i == 0 || j == 0 || i == frame_width - 1 || j == frame_height - 1)
+			{
 				board[i + dx][j + dy] = '-';
+				color[i + dx][j + dy] = DarkYellow;
+			}
 			else if (6 * (j + 1) % frame_height == 0)
+			{
 				board[i + dx][j + dy] = '-';
+				color[i + dx][j + dy] = White;
+			}
 			else
+			{
 				board[i + dx][j + dy] = (char)32;
+				color[i + dx][j + dy] = Black;
+			}
 		}
 	}
 
+
+}
+
+void Buffer::setColor(int x, int y, ColorCode code)
+{
+	color[x + dx][y + dy] = code;
 }
 
 void Buffer::updateBuffer(int x, int y, std::string s, int speed)
@@ -138,6 +170,19 @@ void Buffer::updateBuffer(int x, int y, std::string s, int speed)
 		if (x + i < frame_width) 
 		{
 			board[x + i + dx][y + dy] = s[i];
+		}
+	}
+
+}
+
+void Buffer::updateBuffer(int x, int y, std::string s, int speed, ColorCode code) {
+
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (x + i < frame_width)
+		{
+			board[x + i + dx][y + dy] = s[i];
+			color[x + i + dx][y + dy] = code;
 		}
 	}
 

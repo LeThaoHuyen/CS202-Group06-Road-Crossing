@@ -9,19 +9,19 @@ void Lane::add()
 {
 	if (objectType == "dinosaur")
 	{
-		list.insert(list.begin(), new Dinosaur(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
+		list.insert(list.begin(), new Dinosaur(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed, DarkGreen));
 	}
 	else if (objectType == "bird")
 	{
-		list.insert(list.begin(), new Bird(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 3, laneSpeed));
+		list.insert(list.begin(), new Bird(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 3, laneSpeed, Yellow));
 	}
 	else if (objectType == "car")
 	{
-		list.insert(list.begin(), new Car(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
+		list.insert(list.begin(), new Car(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed, Red));
 	}
 	else if (objectType == "truck")
 	{
-		list.insert(list.begin(), new Truck(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed));
+		list.insert(list.begin(), new Truck(-laneSpeed + 2 + rand() % laneSpeed, lanePart - 2, laneSpeed, Blue));
 	}
 }
 
@@ -41,19 +41,19 @@ void Lane::createObject(int level, string type, int _lanePart)
 		}
 		if (type == "dinosaur")
 		{
-			list.push_back(new Dinosaur(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Dinosaur(coord, lanePart - 2, laneSpeed, DarkGreen));
 		}
 		else if (type == "bird")
 		{
-			list.push_back(new Bird(coord, lanePart - 3, laneSpeed));
+			list.push_back(new Bird(coord, lanePart - 3, laneSpeed, Yellow));
 		}
 		else if (type == "car")
 		{
-			list.push_back(new Car(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Car(coord, lanePart - 2, laneSpeed, Red));
 		}
 		else if (type == "truck")
 		{
-			list.push_back(new Truck(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Truck(coord, lanePart - 2, laneSpeed,Blue));
 		}
 	}
 }
@@ -131,19 +131,19 @@ void Lane::init(int level, string type, int _lanePart)
 		}
 		if (type == "dinosaur")
 		{
-			list.push_back(new Dinosaur(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Dinosaur(coord, lanePart - 2, laneSpeed, DarkGreen));
 		}
 		else if (type == "bird")
 		{
-			list.push_back(new Bird(coord, lanePart - 3, laneSpeed));
+			list.push_back(new Bird(coord, lanePart - 3, laneSpeed, Yellow));
 		}
 		else if (type == "car")
 		{
-			list.push_back(new Car(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Car(coord, lanePart - 2, laneSpeed, Red));
 		}
 		else if (type == "truck")
 		{
-			list.push_back(new Truck(coord, lanePart - 2, laneSpeed));
+			list.push_back(new Truck(coord, lanePart - 2, laneSpeed, Blue));
 		}
 	}
 }
@@ -154,5 +154,5 @@ void Lane::clear()
 	{
 		delete list[i];
 	}
-	list.resize(0);
+	list.clear();
 }

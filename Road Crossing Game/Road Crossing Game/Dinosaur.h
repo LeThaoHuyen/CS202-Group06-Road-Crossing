@@ -8,7 +8,7 @@ private:
 	string sound;
 	static vector<char> dinoShape;
 public:
-	Dinosaur(int x, int y, int s) : GameObject(x, y, Dinosaur::dinoShape, s) {}
+	Dinosaur(int x, int y, int s, ColorCode code) : GameObject(x, y, Dinosaur::dinoShape, s, code) {}
 	~Dinosaur() {}
 	void makeSound();
 };

@@ -8,7 +8,7 @@ private:
 	string sound;
 	static vector<char> truckShape;
 public:
-	Truck(int x, int y, int s) : GameObject(x, y, Truck::truckShape, s) {}
+	Truck(int x, int y, int s, ColorCode code) : GameObject(x, y, Truck::truckShape, s, code) {}
 	~Truck();
 	void makeSound();
 };

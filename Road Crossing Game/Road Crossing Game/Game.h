@@ -5,8 +5,8 @@
 #include<thread>
 
 // Game size
-const int consoleWidth = 800;
-const int consoleHeight = 600;
+const int consoleWidth = 1300;
+const int consoleHeight = 1300;
 const int frameWidth = 60;
 const int frameHeight = 30;
 const int laneWidth = frameHeight / 6;

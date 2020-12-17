@@ -2,27 +2,25 @@
 
 LaneManager::LaneManager(int level, int laneWidth)
 {
-	int random = rand() % 4;
+	
 	lanes.resize(4);
-	int index;
 	for (int i = 0; i < 4; i++)
 	{
-		index = random + i < 4 ? random + i : (random + i) % 4;
 		if (i == 0)
 		{
-			lanes[i] = new Lane(level, "bird", laneWidth * (index + 2));
+			lanes[i] = new Lane(level, "bird", laneWidth * (i + 2));
 		}
 		else if (i == 1)
 		{
-			lanes[i] = new Lane(level, "dinosaur", laneWidth * (index + 2));
+			lanes[i] = new Lane(level, "dinosaur", laneWidth * (i + 2));
 		}
 		else if (i == 2)
 		{
-			lanes[i] = new Lane(level, "car", laneWidth * (index + 2)); // replace with car
+			lanes[i] = new Lane(level, "truck", laneWidth * (i + 2)); 
 		}
 		else
 		{
-			lanes[i] = new Lane(level, "truck", laneWidth * (index + 2)); // replace with truck
+			lanes[i] = new Lane(level, "car", laneWidth * (i + 2)); 
 		}
 	}
 }
@@ -41,10 +39,21 @@ void LaneManager::draw(Buffer& buffer)
 	for (int i = 0; i < lanes.size(); i++)
 	{
 		lanes[i]->draw(buffer);
+		if (i == 2){
+			buffer.updateBuffer(1, 15, (char)220);
+			buffer.updateBuffer(1, 16, (char)220);
+			buffer.setColor(1, 16, Green);
+		}
+		else if (i == 3) {
+			buffer.updateBuffer(buffer.bufferWidth()-2, 20 , (char)220);
+			buffer.updateBuffer(buffer.bufferWidth()-2, 21, (char)220);
+			buffer.setColor(buffer.bufferWidth() - 2 , 21, Green);
+			
+		}
 	}
 
 }
-
+// **** check collision ****
 bool LaneManager::checkCollision(int x, int y)
 {
 	for (int i = 0; i < lanes.size(); i++)
@@ -54,35 +63,45 @@ bool LaneManager::checkCollision(int x, int y)
 	}
 	return false;
 }
+bool LaneManager::checkCollision(People& player)
+{
+	for (int i = 0; i < player.getShape().length(); i++) {
+		if (checkCollision(player.getX() + i, player.getY()))
+			return true;
+	}
+	return false;
+}
+
+
 
 bool LaneManager::isVehicleStopped()
 {
 	return trafficLight == "red";
 }
 
+
+// *** initialize ***
 void LaneManager::init(int level, int laneWidth)
 {
-	int random = rand() % 4;
+	
 	lanes.resize(4);
-	int index;
 	for (int i = 0; i < 4; i++)
 	{
-		index = random + i < 4 ? random + i : (random + i) % 4;
 		if (i == 0)
 		{
-			lanes[i] = new Lane(level, "bird", laneWidth * (index + 2));
+			lanes[i] = new Lane(level, "bird", laneWidth * (i + 2));
 		}
 		else if (i == 1)
 		{
-			lanes[i] = new Lane(level, "dinosaur", laneWidth * (index + 2));
+			lanes[i] = new Lane(level, "dinosaur", laneWidth * (i + 2));
 		}
 		else if (i == 2)
 		{
-			lanes[i] = new Lane(level, "car", laneWidth * (index + 2)); // replace with car
+			lanes[i] = new Lane(level, "truck", laneWidth * (i + 2));
 		}
 		else
 		{
-			lanes[i] = new Lane(level, "truck", laneWidth * (index + 2)); // replace with truck
+			lanes[i] = new Lane(level, "car", laneWidth * (i + 2)); 
 		}
 	}
 
@@ -107,6 +126,8 @@ void LaneManager::clear()
 	}
 }
 
+
+// *** Control vehicles traffic ***
 void LaneManager::stopVehicles()
 {
 	for (int i = 0; i < lanes.size(); i++)

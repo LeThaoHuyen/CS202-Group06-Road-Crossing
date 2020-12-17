@@ -14,8 +14,9 @@ private:
 	int objectLength;
 	std :: string shape;
 	int speed;
+	ColorCode code;
 public:
-	GameObject(int, int, std::vector<char>& list, int);
+	GameObject(int, int, std::vector<char>& list, int, ColorCode);
 	void move(int, int);
 	void move();
 	std :: string getShape();

@@ -1,6 +1,6 @@
 ﻿#include "GameObject.h"
 
-GameObject::GameObject(int x, int y, std::vector<char>& list, int s) 
+GameObject::GameObject(int x, int y, std::vector<char>& list, int s, ColorCode code) 
 {
 
 	mX = x;
@@ -10,6 +10,7 @@ GameObject::GameObject(int x, int y, std::vector<char>& list, int s)
 		shape += ch;
 	objectLength = shape.length();
 	speed = s;
+	this->code = code;
 }
 
 void GameObject::move(int x, int y)
@@ -20,7 +21,7 @@ void GameObject::move(int x, int y)
 
 void GameObject::move()
 {
-	// Vật cản di chuyển theo chiều ngang từ trái sang phải.
+	
 	mX += speed;
 }
 
@@ -32,7 +33,7 @@ std::string GameObject::getShape()
 void GameObject::draw(Buffer& buffer)
 {
 	if (isOnScreen(buffer))
-		buffer.updateBuffer(mX, mY, shape, speed);
+		buffer.updateBuffer(mX, mY, shape, speed, code);
 }
 
 bool GameObject::checkCollision(GameObject& other)
