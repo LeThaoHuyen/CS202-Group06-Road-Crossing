@@ -46,6 +46,10 @@ Buffer::Buffer(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(fw)
 			}
 		}
 	}
+	/* create menu  */
+	menu_y = game_height / 2 - 10;
+	menu_x = 5;
+	createMainMenu();
 
 }
 
@@ -186,4 +190,75 @@ void Buffer::updateBuffer(int x, int y, std::string s, int speed, ColorCode code
 		}
 	}
 
+}
+//---------------------------------
+
+
+/*  menu  frame  */
+
+void Buffer::displayMenu()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < Buffer::menu[i].length(); j++)
+		{
+			console.gotoXY(menu_x + j, menu_y + i);
+			console.setTextColor(color[menu_x + j][menu_y + i]);
+			cout << board[menu_x + j][menu_y + i];
+		}
+	}
+}
+
+void Buffer::updateOption(int choice)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		board[menu_x - 2][menu_y + i] = (char)32;
+		color[menu_x - 2][menu_y + i] = Black;
+
+	}
+	board[menu_x - 2][menu_y + choice - 1] = (char)62;
+	color[menu_x - 2][menu_y + choice - 1] = Red;
+}
+
+
+void Buffer::showOption()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		if (board[menu_x - 1][menu_y + i] == (char)62)
+		{
+			console.gotoXY(menu_x - 2, menu_y + i);
+			console.setTextColor(color[menu_x - 2][menu_y + i]);
+			cout << board[menu_x - 2][menu_y + i];
+			break;
+		}
+	}
+}
+
+void Buffer::createInGameMenu()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < Buffer::in_game_menu[i].length(); j++)
+		{
+			board[menu_x + j][menu_y + i] = Buffer::in_game_menu[i][j];
+			color[menu_x + j][menu_y + i] = Green;
+		}
+	}
+	board[menu_x - 2][menu_y] = (char)62;
+	color[menu_x - 2][menu_y] = Red;
+}
+
+void Buffer::createMainMenu()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < Buffer::menu[i].length(); j++)
+		{
+			board[menu_x + j][menu_y + i] = Buffer::menu[i][j];
+		}
+	}
+	board[menu_x - 2][menu_y] = (char)62;
+	color[menu_x - 2][menu_y] = Red;
 }

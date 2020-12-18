@@ -13,6 +13,10 @@ private:
 	Console console;
 	int dx, dy;
 
+	/* menu frame */
+	static string menu[3];
+	static string in_game_menu[3];
+	int menu_x, menu_y;
 	
 public:
 	Buffer(){}
@@ -27,5 +31,11 @@ public:
 	void init(int gw, int gh, int fw, int fh);
 	void setColor(int x, int y, ColorCode code);
 
+	/*  menu  */
+	void displayMenu();
+	void updateOption(int choice);
+	void showOption();
+	void createInGameMenu();
+	void createMainMenu();
 };
 
