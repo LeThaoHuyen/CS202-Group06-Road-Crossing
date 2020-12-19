@@ -73,7 +73,6 @@ void Buffer::makeTitle() {
 	for (i = 0; i < 7; ++i) {
 		x.gotoXY(column, row++);
 		for (j = 0; j < 82; ++j) {
-			//handle->textcolor(rand() % 8 + 8);
 			SetConsoleTextAttribute(hConsole, i);
 			cout << Title[i][j];
 		}
