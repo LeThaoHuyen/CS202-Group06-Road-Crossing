@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include "Console.h"
 using namespace std;
+
 class Buffer
 {
 private:

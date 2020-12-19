@@ -32,4 +32,6 @@
 *.app
 .vs
 Debug
+.DS_Store
+Road Crossing Game/.DS_Store
 Road Crossing Game/Road Crossing Game/.DS_Store

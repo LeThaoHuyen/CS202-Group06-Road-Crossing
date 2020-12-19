@@ -12,8 +12,8 @@ vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
 vector<char> Car::carShape = { (char)220,(char)219,(char)219,(char)220 };
 vector<char> Truck::truckShape = { (char)219, (char)219, (char)220 };
 
-string Buffer :: menu[3] = { "1.New game", "2.Load game", "3.Exit" };
-string Buffer :: in_game_menu[3] = { "1. Continue game", "Save Game", "3.Exit" };
+string Buffer :: menu[3] = { "1. NEW GAME", "2. LOAD GAME", "3. EXIT" };
+string Buffer :: in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME", "4. EXIT" };
 
 // game size
 //const int consolewidth = 1300;

@@ -18,9 +18,9 @@ private:
 	Buffer screen;
 	LaneManager laneManager;
 	People player;
+	Menu menu;
 	int currentLevel;
 	int m_isRunning;
-
 	void clearGame();
 	//void copyGame(const Game&);
 public:

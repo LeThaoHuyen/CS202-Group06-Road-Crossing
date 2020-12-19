@@ -13,7 +13,8 @@ private:
 public:
 	Menu();
 	~Menu();
-	void mainMenu(); // display when starting game
-	void subMenu(); // display if users press P when playing
-	void getInput(); // process menu
+	void showMenu(Buffer &buffer); 		// display when starting game
+	void showSub(Buffer &buffer); 		// display if users press P when playing
+	int processMain(Buffer &buffer);	// process main menu
+	int processSub(Buffer &buffer);    	// process sub menu
 };

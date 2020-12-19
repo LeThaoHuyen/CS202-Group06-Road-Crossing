@@ -7,6 +7,7 @@ Game::Game() {
 	currentLevel = 1;
 	m_isRunning = true;
 }
+
 Game::Game (int level) {
 	screen.init(consoleWidth, consoleHeight, frameWidth, frameHeight);
 	laneManager.init(level, laneWidth);
@@ -57,28 +58,45 @@ void Game::loadGame() {
 	newGame(level);
 }
 
-void Game::pauseGame() {
+void Game::pauseGame()
+{
 	m_isRunning = false;
+	// Display Sub Menu
+	menu.showSub();
+	int choice = menu.processSub();
+	if (choice == 1)
+		resumeGame();
+	else if (choice == 2)
+		newGame(1);
+	else if (choice == 3)
+		saveGame();
+	else
+		exitGame();
 }
 
 void Game::resumeGame() {
 	m_isRunning = true;
 }
 
-void Game::drawGame() {
+void Game::drawGame()
+{
 	laneManager.update(screen);
 	screen.update();
 	laneManager.draw(screen);
 	player.draw(screen);
 	screen.display();
+	// Display Main Menu
+	menu.showMain();
+	int choice = menu.processMain();
+	if (choice == 1)
+		newGame(1);
+	else if (choice == 2)
+		loadGame();
+	else
+		exitGame();
 }
 
 void Game::exitGame(thread* game) {
 	m_isRunning = false;
 	game->join();
 }
-
-void showMenu() {
-
-}
-
