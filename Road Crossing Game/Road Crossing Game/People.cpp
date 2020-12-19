@@ -85,6 +85,25 @@ bool People :: isOnScreen(Buffer& buffer)
 {
 	return mX >= 0 && mX < buffer.bufferWidth();
 }
+void People::selfDraw() {
+	HANDLE  hConsole;
+	Console g;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	int x, y;
+	x = this->mX;
+	y = this->mY;
+	const char TITLE[][3] = { {32,153,32},
+							{218, 219, 191 },
+							{32,208,32} };
+
+	int i, j;
+	for (i = 0; i < 3; ++i) {
+		g.gotoXY(x, y++);
+		for (j = 0; j < 3; ++j) {
+			cout << TITLE[i][j];
+		}
+	}
+}
 
 People::~People()
 {

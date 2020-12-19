@@ -18,6 +18,7 @@ public:
 	string getShape();
 	int getX();
 	int getY();
+	void selfDraw();
 	void draw(Buffer& buffer);
 	bool isOnScreen(Buffer& buffer);
 private:
