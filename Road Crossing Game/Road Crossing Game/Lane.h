@@ -7,6 +7,7 @@
 #include "Dinosaur.h"
 #include "Car.h"
 #include "Truck.h"
+#include "Buffer2.h"
 
 using namespace std;
 class Lane
@@ -28,5 +29,11 @@ public:
 	string type();
 	void init(int level, string type, int _lanePart);
 	void clear();
+
+	/*** new version ***/
+	Lane(int level, string type);
+	void createObjects(int level, string type);
+	void update();
+	void draw(Buffer2& buffer);
 	~Lane();
 };

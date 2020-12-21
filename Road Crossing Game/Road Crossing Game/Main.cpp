@@ -6,6 +6,7 @@
 #include "LaneManager.h"
 #include "People.h"
 #include "Game.h"
+#include "Buffer2.h"
 
 vector<char> Bird::birdShape = { (char)223, (char)220, (char)223 };
 vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
@@ -22,16 +23,16 @@ string Buffer :: in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME
 //const int frameheight = 30;
 //const int lanewidth = frameheight / 6;
 
-Game game(1);
-
-// demo
-void runGame() {
-	game.newGame(1);
-	while (game.isRunning()) {
-		game.drawGame();
-		Sleep(1000);
-	}
-}
+//Game game(1);
+//
+//// demo
+//void runGame() {
+//	game.newGame(1);
+//	while (game.isRunning()) {
+//		game.drawGame();
+//		Sleep(1000);
+//	}
+//}
 int main() 
 {
 	//Buffer screen(consoleWidth, consoleHeight, frameWidth, frameHeight);
@@ -79,7 +80,7 @@ int main()
 	//}
 	//return 0;
 	
-	thread t1(runGame);
+	/*thread t1(runGame);
 	int key;
 	while (true) {
 		key = _getch();
@@ -93,7 +94,20 @@ int main()
 				t1 = thread(runGame);
 			}
 		}
-	}
+	}*/
+	
+
+	/* Test  */
+	Buffer2 screen(800,1300,60,30);
+	screen.displayMenu();
+	screen.drawFrame();
+	screen.drawObject(31, 32, "car");
+	screen.drawObject(31, 11, "bird");
+	screen.drawObject(31, 23, "truck");
+	screen.drawObject(31, 18, "dinosaur");
+
+
+
 	
 	return 0;
 }

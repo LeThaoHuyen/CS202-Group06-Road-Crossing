@@ -6,21 +6,24 @@
 #include <cstring>
 #include <windows.h>
 #include "Buffer.h"
+#include "Buffer2.h"
 
 class GameObject
 {
 private:
 	int mX, mY;
 	int objectLength;
-	std :: string shape;
 	int speed;
+	string shape;
 	ColorCode code;
 public:
-	GameObject(int, int, std::vector<char>& list, int, ColorCode);
+	GameObject(int, int, int, ColorCode);
+	GameObject(int, int, vector<char> & list, int, ColorCode);
 	void move(int, int);
 	void move();
 	std :: string getShape();
 	int getX() { return mX; }
+	int getY() { return mY; }
 	void draw(Buffer& buffer);
 	bool checkCollision(GameObject& other);
 	bool checkCollision(int, int);
@@ -30,5 +33,6 @@ public:
 	int getSpeed();
 	void changeSpeed(int );
 	void setX(int x) { mX = x; }
+	ColorCode getCode() { return code; }
 };
 
