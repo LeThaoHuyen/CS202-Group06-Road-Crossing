@@ -16,7 +16,7 @@ void Menu::showSub(Buffer &buffer)
 	buffer.displayMenu();
 }
 
-int Menu::processMain(Buffer &buffer, )
+int Menu::processMain(Buffer &buffer)
 {
 	int choice = 1;
 	buffer.updateOption(choice);

@@ -169,7 +169,7 @@ void Buffer::init(int gw, int gh, int fw, int fh)
 			if (i == 0 || j == 0 || i == frame_width - 1 || j == frame_height - 1)
 			{
 				board[i + dx][j + dy] = '-';
-				color[i + dx][j + dy] = DarkYellow;
+				color[i + dx][j + dy] = Yellow;
 			}
 			else if (6 * (j + 1) % frame_height == 0)
 			{
@@ -183,6 +183,11 @@ void Buffer::init(int gw, int gh, int fw, int fh)
 			}
 		}
 	}
+	/* create menu  */
+	menu_y = game_height / 2 - 10;
+	menu_x = 5;
+	createMainMenu();
+
 
 
 }
@@ -253,7 +258,7 @@ void Buffer::showOption()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		if (board[menu_x - 1][menu_y + i] == (char)62)
+		if (board[menu_x - 2][menu_y + i] == (char)62)
 		{
 			console.gotoXY(menu_x - 2, menu_y + i);
 			console.setTextColor(color[menu_x - 2][menu_y + i]);

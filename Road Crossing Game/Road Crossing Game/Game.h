@@ -1,6 +1,7 @@
 #pragma once
 #include"LaneManager.h"
 #include"People.h"
+#include "Menu.h"
 #include<fstream>
 #include<thread>
 

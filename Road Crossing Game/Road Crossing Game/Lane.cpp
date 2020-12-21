@@ -65,7 +65,7 @@ bool Lane::checkCollision(int x, int y)
 		if (list[i]->checkCollision(x, y))
 			return true;
 	}
-	return true;
+	return false;
 }
 
 void Lane::draw(Buffer& buffer)

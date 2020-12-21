@@ -62,8 +62,8 @@ void Game::pauseGame()
 {
 	m_isRunning = false;
 	// Display Sub Menu
-	menu.showSub();
-	int choice = menu.processSub();
+	menu.showSub(screen);
+	int choice = menu.processSub(screen);
 	if (choice == 1)
 		resumeGame();
 	else if (choice == 2)
@@ -71,7 +71,8 @@ void Game::pauseGame()
 	else if (choice == 3)
 		saveGame();
 	else
-		exitGame();
+		//exitGame();
+		return;
 }
 
 void Game::resumeGame() {
@@ -86,14 +87,15 @@ void Game::drawGame()
 	player.draw(screen);
 	screen.display();
 	// Display Main Menu
-	menu.showMain();
-	int choice = menu.processMain();
+	menu.showMain(screen);
+	int choice = menu.processMain(screen);
 	if (choice == 1)
 		newGame(1);
 	else if (choice == 2)
 		loadGame();
 	else
-		exitGame();
+		//exitGame();
+		cout << "exit" << endl;
 }
 
 void Game::exitGame(thread* game) {

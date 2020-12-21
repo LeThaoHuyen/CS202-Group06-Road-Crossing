@@ -16,7 +16,7 @@ private:
 
 	/* menu frame */
 	static string menu[3];
-	static string in_game_menu[3];
+	static string in_game_menu[4];
 	int menu_x, menu_y;
 	
 public:

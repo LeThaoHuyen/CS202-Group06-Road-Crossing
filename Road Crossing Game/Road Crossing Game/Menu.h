@@ -3,10 +3,10 @@
 #include <iostream>
 #include "Console.h"
 #include "Buffer.h"
-#include "Game.h"
+
 using namespace std;
 
-class Menu : public Console
+class Menu 
 {
 private:
 	int input;
@@ -17,4 +17,7 @@ public:
 	void showSub(Buffer &buffer); 		// display if users press P when playing
 	int processMain(Buffer &buffer);	// process main menu
 	int processSub(Buffer &buffer);    	// process sub menu
+	void showMain(Buffer& buffer);
+	
+	
 };
