@@ -23,6 +23,10 @@ public:
 	Buffer(){}
 	Buffer(int, int, int, int);
 	void makeTitle();
+	void drawCar();
+	void drawTruck();
+	void drawBird();
+	void drawDino();
 	void display();
 	void updateBuffer(int x, int y, char t);
 	void updateBuffer(int x, int y, std::string s, int speed);

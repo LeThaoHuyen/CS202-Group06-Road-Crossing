@@ -80,6 +80,39 @@ void Buffer::makeTitle() {
 
 }
 
+void Buffer::drawCar()
+{
+	cout << "     ___" << endl;
+	cout << " ___/   \\___" << endl;
+	cout << "|___ ____ __|" << endl;
+	cout << "    O    O" << endl;
+}
+
+void Buffer::drawTruck()
+{
+	cout << " _____" << endl;
+	cout << "|     \\___" << endl;
+	cout << "|__ ___ __|" << endl;
+	cout << "   O   O" << endl;
+}
+
+void Buffer::drawBird()
+{
+	cout << "__     __" << endl;
+	cout << "\\ \\o o/ /" << endl;
+	cout << " \\__V__/" << endl;
+}
+
+void Buffer::drawDino()
+{
+	cout << "        ____" << endl;
+	cout << "       / o _)" << endl;
+	cout << "    __/   /" << endl;
+	cout << "\\__/  \\  /\\" << endl;
+	cout << " \\ ____ /" << endl;
+	cout << " _|_  _|_" << endl;
+}
+
 void Buffer::display()
 {
 	for (int i = 0; i < frame_width; i++) 
