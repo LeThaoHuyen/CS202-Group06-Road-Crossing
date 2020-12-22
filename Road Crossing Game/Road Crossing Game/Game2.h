@@ -7,15 +7,14 @@
 class Game2 {
 public:
 	static const int MAX_LEVEL;
+	People player;
 private:
 	Buffer2 screen;
 	LaneManager laneManager;
-	People player;
 	int currentLevel;
 	int m_isRunning;
 	
 	void clearGame();
-	
 public:
 	Game2();
 	Game2(int level);

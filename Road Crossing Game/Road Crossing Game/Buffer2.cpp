@@ -125,7 +125,7 @@ void Buffer2::displayMenu()
 			}
 		}
 	}
-	console.gotoXY(60, 10);
+	/*console.gotoXY(60, 10);
 	cout << "CROSSING ROAD";
 	console.gotoXY(50, 13);
 	cout << "------------------------";
@@ -145,7 +145,7 @@ void Buffer2::displayMenu()
 	cout << "*      Exit game       *";
 	console.gotoXY(50, 21);
 	cout << "------------------------";
-	console.gotoXY(70, 70);
+	console.gotoXY(70, 70);*/
 
 }
 

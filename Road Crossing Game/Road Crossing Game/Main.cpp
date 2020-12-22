@@ -21,17 +21,17 @@ int Dinosaur::length = 14;
 int Car::length = 14;
 int Truck::length = 15;
 
-Game2 game(1);
+Game2 game(2);
 
 // demo
 void runGame() {
-	game.newGame(1);
 	while (game.isRunning()) {
 		game.drawGame();
 	}
 }
 int main() 
 {
+	game.newGame(2);
 	thread t1(runGame);
 	int key;
 	while (true) {
@@ -45,6 +45,22 @@ int main()
 				t1.detach();
 				t1 = thread(runGame);
 			}
+		}
+		if (key == key_UpArrow) {
+			game.player.Up();
+			game.player.selfDraw();
+		}
+		if (key == key_DownArrow) {
+			game.player.Down();
+			game.player.selfDraw();
+		}
+		if (key == key_RightArrow) {
+			game.player.Right();
+			game.player.selfDraw();
+		}
+		if (key == key_LeftArrow) {
+			game.player.Left();
+			game.player.selfDraw();
 		}
 	}
 	

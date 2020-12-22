@@ -12,7 +12,7 @@ People::People(int w, int h)
 {
 	mState = true;
 	mY = h;
-	mX = w / 2;
+	mX = w;
 	shape = "";
 	shape += (char)187;
 	//shape += (char)223;
@@ -24,7 +24,7 @@ People::People(int w, int h)
 void People::init(int w, int h) {
 	mState = true;
 	mY = h;
-	mX = w / 2;
+	mX = w ;
 	shape = "";
 	shape += (char)187;
 	//shape += (char)223;
@@ -34,21 +34,27 @@ void People::init(int w, int h) {
 }
 void People::Up()
 {
+	invisible();
 	mY -= speedY;
 }
 void People::Down()
 {
+	invisible();
 	mY += speedY;
 }
-void People::Left(Buffer & buffer)
+void People::Left()
 {
-	if (isOnScreen(buffer))
+	if (mX - speedX > frameLeftBorder) {
+		invisible();
 		mX -= speedX;
+	}
 }
-void People::Right(Buffer & buffer)
+void People::Right()
 {
-	if (isOnScreen(buffer))
+	if (mX + speedX < frameRightBorder) {
+		invisible();
 		mX += speedX;
+	}
 }
 void People::Dead()
 {
@@ -96,6 +102,7 @@ void People::selfDraw() {
 							{218, 219, 191 },
 							{32,208,32} };
 
+	g.setTextColor(Cyan);
 	int i, j;
 	for (i = 0; i < 3; ++i) {
 		g.gotoXY(x, y++);
@@ -104,7 +111,26 @@ void People::selfDraw() {
 		}
 	}
 }
+void People::invisible() {
+	HANDLE  hConsole;
+	Console g;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	int x, y;
+	x = this->mX;
+	y = this->mY;
+	const char TITLE[][3] = { {32,153,32},
+							{218, 219, 191 },
+							{32,208,32} };
 
+	g.setTextColor(BlackAll);
+	int i, j;
+	for (i = 0; i < 3; ++i) {
+		g.gotoXY(x, y++);
+		for (j = 0; j < 3; ++j) {
+			cout << TITLE[i][j];
+		}
+	}
+}
 People::~People()
 {
 }

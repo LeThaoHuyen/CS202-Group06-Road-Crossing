@@ -14,7 +14,8 @@ enum ColorCode {
 	DarkPink   = 5,  Red     = 12,
 	DarkYellow = 6,  Pink    = 13,
 	DarkWhite  = 7,  Yellow  = 14,
-	White      = 15, Default = 7
+	White      = 15, Default = 7,
+	BlackAll   = 0
 };
 
 #define key_Enter		13

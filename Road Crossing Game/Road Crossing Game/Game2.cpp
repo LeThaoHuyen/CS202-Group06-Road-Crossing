@@ -3,7 +3,7 @@
 Game2::Game2()  {
 	screen.init(consoleWidth, consoleHeight, frameWidth, frameHeight);
 	laneManager.init(1);
-	player.init(frameWidth, frameHeight - 2);
+	player.init(96, 34);
 	currentLevel = 1;
 	m_isRunning = true;
 }
@@ -11,7 +11,7 @@ Game2::Game2()  {
 Game2::Game2(int level) {
 	screen.init(consoleWidth, consoleHeight, frameWidth, frameHeight);
 	laneManager.init(level);
-	player.init(frameWidth, frameHeight - 2);
+	player.init(96, 34);
 	currentLevel = level;
 	m_isRunning = true;
 }
@@ -23,8 +23,9 @@ void Game2::clearGame() {
 	laneManager.clear();
 }
 void Game2::drawGame() {
-	laneManager.update();
 	laneManager.draw(screen);
+	laneManager.update();
+	//player.selfDraw();
 	Sleep(1000);
 }
 void Game2::newGame(int level) {
@@ -33,8 +34,7 @@ void Game2::newGame(int level) {
 	laneManager.init(level);
 	screen.displayMenu();
 	screen.drawFrame();
-
-	laneManager.draw(screen);
+	player.selfDraw();
 	drawGame();
 }
 void Game2::resetGame() {

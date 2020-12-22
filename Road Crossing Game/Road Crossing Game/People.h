@@ -2,6 +2,10 @@
 #include "Buffer.h"
 #include <iostream>
 using namespace std;
+
+const int frameLeftBorder = 31;
+const int frameRightBorder = 158;
+
 class People
 {
 public:
@@ -10,8 +14,8 @@ public:
 	~People();
 	void init(int, int);
 	void Up();
-	void Left(Buffer & buffer);
-	void Right(Buffer & buffer);
+	void Left();
+	void Right();
 	void Down();
 	void Dead();
 	bool isDead();
@@ -21,6 +25,7 @@ public:
 	void selfDraw();
 	void draw(Buffer& buffer);
 	bool isOnScreen(Buffer& buffer);
+	void invisible();
 private:
 	int mX, mY;
 	bool mState;
