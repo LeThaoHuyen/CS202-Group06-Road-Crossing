@@ -35,5 +35,7 @@ public:
 	void createObjects(int level, string type);
 	void update();
 	void draw(Buffer2& buffer);
+	void addOne();
+	void init(int level, string type);
 	~Lane();
 };

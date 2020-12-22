@@ -46,8 +46,8 @@ public:
 	Buffer2(int, int, int, int);
 	void displayMenu();
 	void drawFrame();
-	void drawObject(int, int, string type);
+	void drawObject(int, int, string type, int speed);
 	void clear();
-
+	int width() { return game_width; }
 };
 

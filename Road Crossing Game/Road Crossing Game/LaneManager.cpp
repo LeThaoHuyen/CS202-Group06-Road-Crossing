@@ -124,6 +124,7 @@ void LaneManager::clear()
 	{
 		lanes[i]->clear();
 	}
+	lanes.clear();
 }
 
 
@@ -144,3 +145,36 @@ void LaneManager::moveVehicles(int level)
 			lanes[i]->changeSpeed(level * 5);
 	}
 }
+
+/*** new version ***/
+LaneManager::LaneManager(int level)
+{
+	lanes.resize(4);
+	lanes[0] = new Lane(level, "bird");
+	lanes[1] = new Lane(level, "dinosaur");
+	lanes[2] = new Lane(level, "truck");
+	lanes[3] = new Lane(level, "car");
+}
+
+void LaneManager::init(int level) 
+{
+	lanes.resize(4);
+	lanes[0] = new Lane(level, "bird");
+	lanes[1] = new Lane(level, "dinosaur");
+	lanes[2] = new Lane(level, "truck");
+	lanes[3] = new Lane(level, "car");
+}
+
+void LaneManager::update()
+{
+	for (int i = 0; i < lanes.size(); i++) {
+		lanes[i]->update();
+	}
+}
+
+void LaneManager::draw(Buffer2& buffer) {
+	for (int i = 0; i < lanes.size(); i++) {
+		lanes[i]->draw(buffer);
+	}
+}
+

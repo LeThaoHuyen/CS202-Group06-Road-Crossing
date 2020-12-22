@@ -16,6 +16,11 @@ vector<char> Truck::truckShape = { (char)219, (char)219, (char)220 };
 string Buffer :: menu[3] = { "1. NEW GAME", "2. LOAD GAME", "3. EXIT" };
 string Buffer :: in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME", "4. EXIT" };
 
+
+int Bird::length = 14;
+int Dinosaur::length = 14;
+int Car::length = 14;
+int Truck::length = 15;
 // game size
 //const int consolewidth = 1300;
 //const int consoleheight = 1600;
@@ -98,13 +103,34 @@ int main()
 	
 
 	/* Test  */
-	Buffer2 screen(800,1300,60,30);
+	Lane lane(1, "bird");
+	Lane lane1(1, "dinosaur");
+	Lane lane2(1, "car");
+	Lane lane3(1, "truck");
+	LaneManager manager(1);
+	Buffer2 screen(1300, 1300, 60, 30);
 	screen.displayMenu();
 	screen.drawFrame();
-	screen.drawObject(31, 32, "car");
-	screen.drawObject(31, 11, "bird");
-	screen.drawObject(31, 23, "truck");
-	screen.drawObject(31, 18, "dinosaur");
+	/*lane.draw(screen);
+	lane1.draw(screen);
+	lane2.draw(screen);
+	lane3.draw(screen);*/
+	manager.draw(screen);
+
+	for (int i = 0; i < 100; i++) {
+		/*lane.update();
+		lane1.update();
+		lane2.update();
+		lane3.update();*/
+		manager.update();
+		//screen.clear();
+		/*lane.draw(screen);
+		lane1.draw(screen);
+		lane2.draw(screen);
+		lane3.draw(screen);*/
+		manager.draw(screen);
+		Sleep(1000);
+	}
 
 
 

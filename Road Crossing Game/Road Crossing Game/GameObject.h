@@ -29,7 +29,7 @@ public:
 	bool checkCollision(int, int);
 	virtual void makeSound() = 0;
 	bool isOnScreen(Buffer& buffer);
-	int getLength();
+	virtual int getLength();
 	int getSpeed();
 	void changeSpeed(int );
 	void setX(int x) { mX = x; }

@@ -4,7 +4,8 @@ Buffer2::Buffer2(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(f
 {
 	console.fixConsoleWindow();
 
-	game_width = console.width(); // 95
+	game_width = console.width(); // 158
+	
 
 	game_height = console.height(); // 63
 
@@ -19,9 +20,9 @@ Buffer2::Buffer2(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(f
 	}
 
 
-	for (int i = 30; i < 95; i++) {
+	for (int i = 30; i < game_width; i++) {
 		board[i][1] = board[i][8] = board[i][15] = board[i][22] = board[i][29] = board[i][36] = board[i][43] = '-';
-		if (i == 30 || i == 94) {
+		if (i == 30 || i == game_width - 1) {
 			for (int j = 1; j < 44; j++) {
 				board[i][j] = '|';
 			}
@@ -80,12 +81,12 @@ void Buffer2::displayMenu()
 	console.gotoXY(3, 17);
 	cout << "Press U to continue";
 
-	for (int i = 30; i < 95; i++) {
+	for (int i = 30; i < game_width; i++) {
 		console.gotoXY(i, 1);
 		cout << "-";
 		console.gotoXY(i, 37);
 		cout << "-";
-		if (i == 30 || i == 94) {
+		if (i == 30 || i == game_width - 1) {
 			for (int j = 1; j < 38; j++) {
 				console.gotoXY(i, j);
 				cout << "|";
@@ -118,7 +119,7 @@ void Buffer2::displayMenu()
 
 
 void Buffer2::clear() {
-	for (int i = 31; i < 94; i++) {
+	for (int i = 31; i < game_width - 1; i++) {
 		for (int j = 1; j <= 43; j++) {
 			if (j != 1 && j != 8 && j != 15 && j != 22 && j != 29 && j != 36 && j != 43) {
 				console.gotoXY(i, j);
@@ -128,7 +129,7 @@ void Buffer2::clear() {
 	}
 }
 void Buffer2::drawFrame() {
-	for (int i = 30; i < 95; i++) {
+	for (int i = 30; i < game_width; i++) {
 		for (int j = 1; j <= 43; j++) {
 			if (board[i][j] != '|' || board[i][j] != '-') {
 				console.gotoXY(i, j);
@@ -137,7 +138,7 @@ void Buffer2::drawFrame() {
 		}
 	}
 
-	for (int i = 30; i < 95; i++) {
+	for (int i = 30; i < game_width; i++) {
 		board[i][1] = board[i][8] = board[i][15] = board[i][22] = board[i][29] = board[i][36] = board[i][43] = '-';
 		console.gotoXY(i, 1);
 		cout << "-";
@@ -153,7 +154,7 @@ void Buffer2::drawFrame() {
 		cout << "-";
 		console.gotoXY(i, 43);
 		cout << "-";
-		if (i == 30 || i == 94) {
+		if (i == 30 || i == game_width - 1) {
 			for (int j = 1; j < 43; j++) {
 				console.gotoXY(i, j);
 				board[i][j] = '|';
@@ -164,71 +165,89 @@ void Buffer2::drawFrame() {
 
 }
 
-void Buffer2::drawObject(int x, int y, string type) {
+void Buffer2::drawObject(int x, int y, string type, int speed) {
 	if (type == "car") {
+		console.setTextColor(Black);
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < car[i].length(); j++) {
+				if (x + j - speed < game_width && x + j - 5 >= 31) {
+					console.gotoXY(x + j - speed, 32 + i);
+					cout << (char)32;
+				}
+			}
+		}
 		console.setTextColor(Yellow);
-		console.gotoXY(x, 32);
-		cout << car[0];
-		console.gotoXY(x, 33);
-		cout << car[1];
-		console.gotoXY(x, 34);
-		cout << car[2];
-		console.gotoXY(x, 35);
-		cout << car[3];
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < car[i].length(); j++) {
+				if (x + j >= 30 && x + j < game_width) {
+					console.gotoXY(x + j, 32 + i);
+					cout << car[i][j];
+				}
+			}
+		}
 	}
 	else if (type == "truck") {
-		console.setTextColor(Green);
-		console.gotoXY(x, 25);
-		cout << truck[0];
-		console.gotoXY(x, 26);
-		cout << truck[1];
-		console.gotoXY(x, 27);
-		cout << truck[2];
-		console.gotoXY(x, 28);
-		cout << truck[3];
-	}
-	else if (type == "bird") {
-		console.setTextColor(Blue);
-		if (x < 95 && x + bird[0].length() < 95) {
-			console.gotoXY(x, 10);
-			cout << bird[0];
+		console.setTextColor(Black);
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < truck[i].length(); j++) {
+				if (x + j - speed < game_width && x + j - 5 >= 31) {
+					console.gotoXY(x + j - speed, 25 + i);
+					cout << (char)32;
+				}
+			}
 		}
-		else {
-			console.gotoXY(31, 10);
-			cout << bird[0];
+		console.setTextColor(Green);
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < truck[i].length(); j++) {
+				if (x + j >= 30 && x + j < game_width) {
+					console.gotoXY(x + j, 25 + i);
+					cout << truck[i][j];
+				}
+			}
 		}
 
-		if (x < 95 && x + bird[1].length() < 95) {
-			console.gotoXY(x, 11);
-			cout << bird[1];
+	}
+	else if (type == "bird") {
+		console.setTextColor(Black);
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < bird[i].length(); j++) {
+				if (x + j - speed < game_width && x + j - 5 >= 31) {
+					console.gotoXY(x + j - speed, 10 + i);
+					cout << (char)32;
+				}
+			}
 		}
-		else {
-			console.gotoXY(31, 11);
-			cout << bird[1];
-		}
-		if (x < 95 && x + bird[0].length() < 95) {
-			console.gotoXY(x, 12);
-			cout << bird[2];
-		}
-		else {
-			console.gotoXY(31, 12);
-			cout << bird[2];
+		console.setTextColor(Blue);
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < bird[i].length(); j++) {
+				if (x + j >= 30 && x + j < game_width) {
+					console.gotoXY(x + j, 10 + i);
+					cout << bird[i][j];
+				}
+			}
 		}
 
 	}
 	else if (type == "dinosaur") {
+		console.setTextColor(Black);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < dino[i].length(); j++) {
+				if (x + j - speed < game_width && x + j - 5 >= 31) {
+					console.gotoXY(x + j - speed, 16 + i);
+					cout << (char)32;
+				}
+
+			}
+		}
 		console.setTextColor(Red);
-		console.gotoXY(x, 16);
-		cout << dino[0];
-		console.gotoXY(x, 17);
-		cout << dino[1];
-		console.gotoXY(x, 18);
-		cout << dino[2];
-		console.gotoXY(x, 19);
-		cout << dino[3];
-		console.gotoXY(x, 20);
-		cout << dino[4];
-		console.gotoXY(x, 21);
-		cout << dino[5];
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < dino[i].length(); j++) {
+				if (x + j >= 30 && x + j < game_width) {
+					console.gotoXY(x + j, 16 + i);
+					cout << dino[i][j];
+				}
+			}
+		}
 	}
 }
+

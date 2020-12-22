@@ -24,6 +24,12 @@ public:
 	void clear();
 	void stopVehicles();
 	void moveVehicles(int level);
+
+	/*** new version ****/
+	LaneManager(int level);
+	void init(int level);
+	void update();
+	void draw(Buffer2& buffer);
 	~LaneManager();
 
 };
