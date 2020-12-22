@@ -179,23 +179,18 @@ Lane::Lane(int level, string type)
 		list.push_back(new Truck(31, 25, laneSpeed, Green));
 	}
 
-	int i = 31 + list[0]->getLength() + 20;
-	int cur = list.size();
-	while (i < 158) {
-		if (type == "bird") {
-			list.push_back(new Bird(i, 11, laneSpeed, Blue));
-		}
-		else if (type == "dinosaur") {
-			list.push_back(new Dinosaur(i, 16, laneSpeed, Red));
-		}
-		else if (type == "car") {
-			list.push_back(new Car(i, 24, laneSpeed, Yellow));
-		}
-		else if (type == "truck") {
-			list.push_back(new Truck(i, 36, laneSpeed, Green));
-		}
-		cur = list.size();
-		i += list[cur - 1]->getLength() + 20;
+	int coordX;
+	// 5 levels add 1 more
+	for (int i = 0; i < 4 + level/5; i++) {
+		coordX = rand() % 47 + list.back()->getX() + list.back()->getLength() + 5;
+		if (type == "bird")
+			list.push_back(new Bird(coordX, 11, laneSpeed, Blue));
+		else if (type == "dinosaur")
+			list.push_back(new Dinosaur(coordX, 16, laneSpeed, Red));
+		else if (type == "car")
+			list.push_back(new Car(coordX, 24, laneSpeed, Yellow));
+		else if (type == "truck")
+			list.push_back(new Truck(coordX, 36, laneSpeed, Green));
 	}
 }
 void Lane::init(int level, string type) {
@@ -215,23 +210,18 @@ void Lane::init(int level, string type) {
 		list.push_back(new Truck(31, 25, laneSpeed, Green));
 	}
 
-	int i = 31 + list[0]->getLength() + 20;
-	int cur = list.size();
-	while (i < 158) {
-		if (type == "bird") {
-			list.push_back(new Bird(i, 11, laneSpeed, Blue));
-		}
-		else if (type == "dinosaur") {
-			list.push_back(new Dinosaur(i, 16, laneSpeed, Red));
-		}
-		else if (type == "car") {
-			list.push_back(new Car(i, 24, laneSpeed, Yellow));
-		}
-		else if (type == "truck") {
-			list.push_back(new Truck(i, 36, laneSpeed, Green));
-		}
-		cur = list.size();
-		i += list[cur - 1]->getLength() + 20;
+	int coordX;
+	// 5 levels add 1 more
+	for (int i = 0; i < 4 + level / 5; i++) {
+		coordX = rand() % 47 + list.back()->getX() + list.back()->getLength() + 5;
+		if (type == "bird")
+			list.push_back(new Bird(coordX, 11, laneSpeed, Blue));
+		else if (type == "dinosaur")
+			list.push_back(new Dinosaur(coordX, 16, laneSpeed, Red));
+		else if (type == "car")
+			list.push_back(new Car(coordX, 24, laneSpeed, Yellow));
+		else if (type == "truck")
+			list.push_back(new Truck(coordX, 36, laneSpeed, Green));
 	}
 }
 
@@ -247,17 +237,18 @@ void Lane::draw(Buffer2& buffer) {
 	}
 }
 void Lane::addOne() {
+	int coordX = list[0]->getX() - list[0]->getLength() + rand()%23 - 43;
 	if (objectType == "bird") {
-		list.insert(list.begin(), new Bird(20, 11, laneSpeed, Blue));
+		list.insert(list.begin(), new Bird(coordX, 11, laneSpeed, Blue));
 	}
 	else if (objectType == "dinosaur") {
-		list.insert(list.begin(), new Dinosaur(20, 16, laneSpeed, Red));
+		list.insert(list.begin(), new Dinosaur(coordX, 16, laneSpeed, Red));
 	}
 	else if (objectType == "car") {
-		list.insert(list.begin(), new Car(20, 24, laneSpeed, Yellow));
+		list.insert(list.begin(), new Car(coordX, 24, laneSpeed, Yellow));
 	}
 	else if (objectType == "truck") {
-		list.insert(list.begin(), new Truck(20, 36, laneSpeed, Green));
+		list.insert(list.begin(), new Truck(coordX, 36, laneSpeed, Green));
 	}
 }
 void Lane::update() {

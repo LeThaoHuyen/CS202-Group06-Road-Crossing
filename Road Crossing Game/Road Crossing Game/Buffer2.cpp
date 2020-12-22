@@ -32,6 +32,38 @@ Buffer2::Buffer2(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(f
 
 
 }
+void Buffer2::init(int gw, int gh, int fw, int fh) {
+	console.init(gw, gh);
+	frame_width = fw;
+	frame_height = fh;
+
+	console.fixConsoleWindow();
+
+	game_width = console.width(); // 158
+
+
+	game_height = console.height(); // 63
+
+	board.resize(game_width);
+	for (int i = 0; i < game_width; i++) {
+		board[i].resize(game_height);
+	}
+	for (int i = 0; i < game_width; i++) {
+		for (int j = 0; j < game_height; j++) {
+			board[i][j] = (char)32;
+		}
+	}
+
+
+	for (int i = 30; i < game_width; i++) {
+		board[i][1] = board[i][7] = board[i][13] = board[i][19] = board[i][25] = board[i][31] = board[i][37] = '-';
+		if (i == 30 || i == game_width - 1) {
+			for (int j = 1; j <= 37; j++) {
+				board[i][j] = '|';
+			}
+		}
+	}
+}
 
 void Buffer2::displayMenu()
 {
@@ -129,6 +161,7 @@ void Buffer2::clear() {
 	}
 }
 void Buffer2::drawFrame() {
+	console.hideCursor();
 	for (int i = 30; i < game_width; i++) {
 		for (int j = 1; j <= 37; j++) {
 			if (board[i][j] != '|' || board[i][j] != '-') {

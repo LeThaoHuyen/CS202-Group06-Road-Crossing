@@ -40,8 +40,9 @@ private:
 
 
 public:
-
+	Buffer2() = default;
 	Buffer2(int, int, int, int);
+	void init(int, int, int, int);
 	void displayMenu();
 	void drawFrame();
 	void drawObject(int, int, string type, int speed);

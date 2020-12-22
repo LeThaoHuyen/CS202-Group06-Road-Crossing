@@ -147,6 +147,7 @@
     <ClInclude Include="Console.h" />
     <ClInclude Include="Dinosaur.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Game2.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Lane.h" />
     <ClInclude Include="LaneManager.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Dinosaur.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Game2.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Lane.cpp" />
     <ClCompile Include="LaneManager.cpp" />
