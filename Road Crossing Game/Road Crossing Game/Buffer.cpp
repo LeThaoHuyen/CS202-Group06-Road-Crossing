@@ -105,12 +105,10 @@ void Buffer::drawBird()
 
 void Buffer::drawDino()
 {
-	cout << "        ____" << endl;
-	cout << "       / o _)" << endl;
-	cout << "    __/   /" << endl;
-	cout << "\\__/  \\  /\\" << endl;
-	cout << " \\ ____ /" << endl;
-	cout << " _|_  _|_" << endl;
+	cout << "    \\_\\" << endl;
+	cout << "  _/ ^_)" << endl;
+	cout << "\\/_L_/L" << endl;
+	cout << " U  U" << endl;
 }
 
 void Buffer::display()
