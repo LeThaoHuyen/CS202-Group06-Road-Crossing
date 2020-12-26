@@ -23,6 +23,7 @@ public:
 	Buffer(){}
 	Buffer(int, int, int, int);
 	void makeTitle();
+	void printCongrat();
 	void drawCar();
 	void drawTruck();
 	void drawBird();
