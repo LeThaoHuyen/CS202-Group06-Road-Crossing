@@ -36,9 +36,10 @@ public:
 	void saveGame();
 	void loadGame();
 
+	bool isWin();
 	void processWin();
 	void processLose();
-	void processPassLevel();
+	// void processPassLevel();
 
 
 };

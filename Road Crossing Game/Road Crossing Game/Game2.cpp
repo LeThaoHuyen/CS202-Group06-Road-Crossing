@@ -67,6 +67,37 @@ void Game2::loadGame() {
 		else {
 			// no game to load
 		}
+		in.close();
 	}
 	
+}
+
+bool Game2::isWin()
+{
+	if (player.getY() <= 6 && player.getY() >= 1)
+		return true;
+	return false;
+}
+
+void Game2::processWin()
+{
+	if (isWin())
+		newGame(++currentLevel);
+}
+
+void Game2::processLose()
+{
+	if (laneManager.checkCollision(player))
+	{
+		int input = toupper(getch());
+		if (input == 'y' || input == 'Y')
+		{
+			currentLevel = 1;
+			newGame(currentLevel);
+		}
+		else
+		{
+			// exit hoan toan khoi game
+		}	
+	}
 }

@@ -35,17 +35,20 @@ void People::init(int w, int h) {
 void People::Up()
 {
 	invisible();
+	PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 	mY -= speedY;
 }
 void People::Down()
 {
 	invisible();
+	PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 	mY += speedY;
 }
 void People::Left()
 {
 	if (mX - speedX > frameLeftBorder) {
 		invisible();
+		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 		mX -= speedX;
 	}
 }
@@ -53,6 +56,7 @@ void People::Right()
 {
 	if (mX + speedX < frameRightBorder) {
 		invisible();
+		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 		mX += speedX;
 	}
 }

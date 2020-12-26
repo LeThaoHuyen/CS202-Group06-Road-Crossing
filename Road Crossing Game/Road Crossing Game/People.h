@@ -1,5 +1,6 @@
 #pragma once
 #include "Buffer.h"
+#include "GameObject.h"
 #include <iostream>
 using namespace std;
 

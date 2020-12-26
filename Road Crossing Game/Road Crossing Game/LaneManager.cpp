@@ -59,7 +59,27 @@ bool LaneManager::checkCollision(int x, int y)
 	for (int i = 0; i < lanes.size(); i++)
 	{
 		if (lanes[i]->checkCollision(x, y))
+		{
+			string type = lane[i]->type();
+			if (type == "car")
+			{
+				// car sound
+			}
+			else if (type == "truck")
+			{
+				// truck sound
+			}
+			else if (type == "dinosaur")
+			{
+				// dino sound
+			}
+			else
+			{
+				// bird sound
+			}
+			// play GameOver.wav
 			return true;
+		}
 	}
 	return false;
 }
