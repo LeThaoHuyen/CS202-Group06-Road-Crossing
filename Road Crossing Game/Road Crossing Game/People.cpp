@@ -132,6 +132,7 @@ void People::invisible() {
 		g.gotoXY(x, y++);
 		for (j = 0; j < 3; ++j) {
 			cout << TITLE[i][j];
+			
 		}
 	}
 }

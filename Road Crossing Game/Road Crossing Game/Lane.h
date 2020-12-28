@@ -37,5 +37,6 @@ public:
 	void draw(Buffer2& buffer);
 	void addOne();
 	void init(int level, string type);
+	GameObject* getObject() { return list.size() == 0 ? nullptr : list[0]; }
 	~Lane();
 };

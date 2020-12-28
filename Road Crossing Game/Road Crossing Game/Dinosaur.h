@@ -8,9 +8,11 @@ private:
 	string sound;
 	static vector<char> dinoShape;
 	static int length;
+	static int height;
 public:
 	Dinosaur(int x, int y, int s, ColorCode code) : GameObject(x, y, Dinosaur::dinoShape, s, code) {}
 	~Dinosaur() {}
 	void makeSound();
 	int getLength() { return length; }
+	bool checkCollision(int, int);
 };

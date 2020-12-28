@@ -42,5 +42,8 @@ public:
 	// void processPassLevel();
 
 
+	bool checkCollision();
+
+
 };
 

@@ -26,7 +26,7 @@ public:
 	int getY() { return mY; }
 	void draw(Buffer& buffer);
 	bool checkCollision(GameObject& other);
-	bool checkCollision(int, int);
+	virtual bool checkCollision(int, int);
 	virtual void makeSound() = 0;
 	bool isOnScreen(Buffer& buffer);
 	virtual int getLength();

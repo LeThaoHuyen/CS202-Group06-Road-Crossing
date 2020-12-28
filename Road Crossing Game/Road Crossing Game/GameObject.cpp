@@ -42,12 +42,16 @@ void GameObject::draw(Buffer& buffer)
 
 bool GameObject::checkCollision(GameObject& other)
 {
-	return mX == other.mX && mY == other.mY;
+	return true;
 }
 
 bool GameObject::checkCollision(int x, int y)
 {
-	return mX == x && mY == y;
+	for (int i = 0; i < this->getLength(); ++i) {
+		if (mX + i == x && mY == y)
+			return true;
+	}
+	return false;
 }
 
 bool GameObject::isOnScreen(Buffer& buffer)

@@ -89,7 +89,7 @@ void Game2::processLose()
 {
 	if (laneManager.checkCollision(player))
 	{
-		int input = toupper(getch());
+		int input = toupper(_getch());
 		if (input == 'y' || input == 'Y')
 		{
 			currentLevel = 1;
@@ -100,4 +100,9 @@ void Game2::processLose()
 			// exit hoan toan khoi game
 		}	
 	}
+}
+
+
+bool Game2::checkCollision() {
+	return laneManager.checkCollision(player);
 }

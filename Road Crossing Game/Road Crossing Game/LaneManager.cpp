@@ -60,7 +60,7 @@ bool LaneManager::checkCollision(int x, int y)
 	{
 		if (lanes[i]->checkCollision(x, y))
 		{
-			string type = lane[i]->type();
+			string type = lanes[i]->type();
 			if (type == "car")
 			{
 				// car sound
@@ -85,9 +85,12 @@ bool LaneManager::checkCollision(int x, int y)
 }
 bool LaneManager::checkCollision(People& player)
 {
-	for (int i = 0; i < player.getShape().length(); i++) {
-		if (checkCollision(player.getX() + i, player.getY()))
+	int x = player.getX(), y = player.getY();
+	
+	for (int i = 0; i < lanes.size(); ++i) {
+		if (lanes[i]->checkCollision(x, y) || lanes[i]->checkCollision(x, y + 1) || lanes[i]->checkCollision(x, y + 2)) {
 			return true;
+		}
 	}
 	return false;
 }

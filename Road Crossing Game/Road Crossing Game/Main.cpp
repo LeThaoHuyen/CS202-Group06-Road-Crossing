@@ -16,10 +16,15 @@ string Buffer :: menu[3] = { "1. NEW GAME", "2. LOAD GAME", "3. EXIT" };
 string Buffer :: in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME", "4. EXIT" };
 
 
-int Bird::length = 14;
-int Dinosaur::length = 14;
-int Car::length = 14;
-int Truck::length = 15;
+int Bird::length = 9;
+int Dinosaur::length = 8;
+int Car::length = 13;
+int Truck::length = 14;
+
+int Car::height = 4;
+int Dinosaur::height = 4;
+int Bird::height = 3;
+int Truck::height = 4;
 
 Game2 game(2);
 
@@ -27,6 +32,13 @@ Game2 game(2);
 void runGame() {
 	while (game.isRunning()) {
 		game.drawGame();
+
+		// Test collision
+
+		if (game.checkCollision()) {
+			cout << "Hello how are you ";
+		}
+
 	}
 }
 int main() 
