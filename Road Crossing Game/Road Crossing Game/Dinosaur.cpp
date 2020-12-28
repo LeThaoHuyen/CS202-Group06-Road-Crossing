@@ -8,13 +8,9 @@ void Dinosaur::makeSound()
 bool Dinosaur::checkCollision(int x, int y)
 {
 	int mX = this->getX(), mY = this->getY();
-	for (int i = 0; i < Dinosaur::length; i++) {
-		for (int j = 0; j < Dinosaur::height; j++) {
-			if (mX == x && mY == y) {
-				makeSound();
-				return true;
-			}
-		}
+	if (mX <= x && x < mX + Dinosaur::length && mY <= y && y < mY + Dinosaur::height) {
+		makeSound();
+		return true;
 	}
 	return false;
 }

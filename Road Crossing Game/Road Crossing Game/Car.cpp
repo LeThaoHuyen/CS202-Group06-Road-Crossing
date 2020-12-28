@@ -3,13 +3,9 @@
 bool Car::checkCollision(int x, int y)
 {
 	int mX = this->getX(), mY = this->getY();
-	for (int i = 0; i < Car::length; i++) {
-		for (int j = 0; j < Car::height; j++) {
-			if (mX + i == x && mY + j == y) {
-				makeSound();
-				return true;
-			}
-		}
+	if (mX <= x && x < mX + Car::length && mY <= y && y < mY + Car::height) {
+		makeSound();
+		return true;
 	}
 	return false;
 }
