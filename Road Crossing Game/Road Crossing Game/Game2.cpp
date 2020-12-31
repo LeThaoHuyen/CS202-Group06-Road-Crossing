@@ -23,8 +23,9 @@ void Game2::clearGame() {
 	laneManager.clear();
 }
 void Game2::drawGame() {
-	laneManager.draw(screen);
+	//laneManager.draw(screen);
 	laneManager.update();
+	laneManager.draw(screen);
 	//player.selfDraw();
 	Sleep(1000);
 }

@@ -36,7 +36,7 @@ void runGame() {
 		// Test collision
 
 		if (game.checkCollision()) {
-			cout << "Hello how are you ";
+			game.pauseGame();
 		}
 
 	}
