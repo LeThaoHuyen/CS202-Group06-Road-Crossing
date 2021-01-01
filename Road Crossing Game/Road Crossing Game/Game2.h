@@ -29,6 +29,7 @@ public:
 	}
 
 	void drawGame();
+	void drawPeople();
 	void newGame(int level);
 	void resetGame();
 	void pauseGame();

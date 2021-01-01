@@ -26,8 +26,12 @@ void Game2::drawGame() {
 	//laneManager.draw(screen);
 	laneManager.update();
 	laneManager.draw(screen);
-	player.selfDraw(screen);
+	//player.selfDraw(screen);
 	Sleep(1000);
+}
+void Game2::drawPeople()
+{
+	player.selfDraw(screen);
 }
 void Game2::newGame(int level) {
 	currentLevel = level;

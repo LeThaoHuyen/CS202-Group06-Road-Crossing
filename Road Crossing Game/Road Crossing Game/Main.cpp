@@ -31,14 +31,16 @@ Game2 game(2);
 // demo
 void runGame() {
 	while (game.isRunning()) {
+		
+		
 		game.drawGame();
-
 		// Test collision
 
 		if (game.checkCollision()) {
 			game.pauseGame();
 		}
-
+		
+		
 	}
 }
 int main() 
@@ -60,19 +62,23 @@ int main()
 		}
 		if (key == key_UpArrow) {
 			game.player.Up();
-			//game.player.selfDraw();
+			game.drawPeople();
+			
 		}
 		if (key == key_DownArrow) {
 			game.player.Down();
-			//game.player.selfDraw();
+			game.drawPeople();
+		
 		}
 		if (key == key_RightArrow) {
 			game.player.Right();
-			//game.player.selfDraw();
+			game.drawPeople();
+			
 		}
 		if (key == key_LeftArrow) {
 			game.player.Left();
-			//game.player.selfDraw();
+			game.drawPeople();
+			
 		}
 	}
 	
