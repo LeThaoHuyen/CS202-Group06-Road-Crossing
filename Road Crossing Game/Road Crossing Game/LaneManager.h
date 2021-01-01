@@ -29,8 +29,10 @@ public:
 	bool isVehicleStopped();
 	void init(int level, int laneWidth);
 	void clear();
-	void stopVehicles();
-	void moveVehicles(int level);
+
+	/*** control vehicle traffic ***/
+	void stopVehicles(string);
+	void moveVehicles(int level, string);
 
 	/*** new version ****/
 	LaneManager(int level);

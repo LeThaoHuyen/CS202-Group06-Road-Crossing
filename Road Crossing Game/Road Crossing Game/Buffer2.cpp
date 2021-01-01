@@ -374,3 +374,29 @@ void Buffer2::drawPeople(int x, int y, int speedX, int speedY, string direction)
 		}
 	}
 }
+
+void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
+	ColorCode color1, color2;
+	color1 = isLaneCarRed ? Red : Gray;
+	color2 = isLaneCarRed ? Gray : Green;
+
+	console.setTextColor(color1);
+	console.gotoXY(157, 25);
+	cout << char(254);
+
+	console.setTextColor(color2);
+	console.gotoXY(157, 26);
+	cout << char(254);
+	
+	color1 = isLaneTruckRed ? Red : Gray;
+	color2 = isLaneTruckRed ? Gray : Green;
+
+	
+	console.setTextColor(color1);
+	console.gotoXY(157, 19);
+	cout << char(254);
+
+	console.setTextColor(color2);
+	console.gotoXY(157, 20);
+	cout << char(254);
+}

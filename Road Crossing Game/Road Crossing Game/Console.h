@@ -27,6 +27,9 @@ enum ColorCode {
 #define key_RightArrow	77
 #define key_Pause       112
 #define key_UnPause     117
+#define key_Save        115
+#define key_Exit        101
+
 class Console
 {
 public:
@@ -54,5 +57,7 @@ public:
 	int midVertical() const { return c_width / 2; }
 	int midHorizontal() const { return c_height / 2; }
 	//string textEdit(int row, int begin, int end);
+
+	
 };
 

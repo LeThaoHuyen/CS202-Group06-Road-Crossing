@@ -6,6 +6,7 @@
 #include "Buffer2.h"
 #include "Game2.h"
 #include "thread"
+#include "ctime"
 
 vector<char> Bird::birdShape = { (char)223, (char)220, (char)223 };
 vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
@@ -27,26 +28,57 @@ int Bird::height = 3;
 int Truck::height = 4;
 
 Game2 game(2);
+bool isLaneCarRed = false;
+bool isLaneTruckRed = false;
 
 // demo
 void runGame() {
 	while (game.isRunning()) {
 		
+		game.drawGame(isLaneCarRed, isLaneTruckRed);
 		
-		game.drawGame();
 		// Test collision
-
 		if (game.checkCollision()) {
 			game.pauseGame();
+			game.processLose();
 		}
-		
 		
 	}
 }
+
+
+
+void trafficLight() {
+	time_t currentTime;
+
+	while (true) {
+		time(&currentTime);
+
+		if (currentTime % 17 == 0) {
+			isLaneCarRed = true;
+			Sleep(5000);
+		}
+
+		if (currentTime % 13 == 0) {
+			isLaneTruckRed = true;
+			Sleep(5000);
+		}
+
+		isLaneCarRed = false;
+		isLaneTruckRed = false;
+	}
+}
+
 int main() 
 {
+<<<<<<< Updated upstream
 	/****  menu ****/
 	game.displayMenu();
+=======
+	game.newGame(2);
+	thread t1(runGame);
+	thread t2(trafficLight);
+>>>>>>> Stashed changes
 	int key;
 	int option = 0;
 	while (true) {
@@ -111,6 +143,10 @@ int main()
 			game.player.Left();
 			game.drawPeople();
 			
+		}
+		if (key == key_Save) {
+			
+			game.saveGame();
 		}
 	}
 	

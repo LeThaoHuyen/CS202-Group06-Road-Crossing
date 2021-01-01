@@ -51,5 +51,8 @@ public:
 	void drawPeople(int x, int y, int speedX, int speedY, string direction);
 	void clear();
 	int width() { return game_width; }
+
+	void drawTrafficLight(bool, bool);
+	
 };
 

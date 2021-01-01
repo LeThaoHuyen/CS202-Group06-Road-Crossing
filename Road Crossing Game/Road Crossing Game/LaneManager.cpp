@@ -155,19 +155,19 @@ void LaneManager::clear()
 
 
 // *** Control vehicles traffic ***
-void LaneManager::stopVehicles()
+void LaneManager::stopVehicles(string vehicleType)
 {
 	for (int i = 0; i < lanes.size(); i++)
 	{
-		if (lanes[i]->type() == "car" || lanes[i]->type() == "truck")
+		if (lanes[i]->type() == vehicleType)
 			lanes[i]->changeSpeed(0);
 	}
 }
 
-void LaneManager::moveVehicles(int level)
+void LaneManager::moveVehicles(int level, string vehicleType)
 {
 	for (int i = 0; i < lanes.size(); i++) {
-		if (lanes[i]->type() == "car" || lanes[i]->type() == "truck")
+		if (lanes[i]->type() == vehicleType)
 			lanes[i]->changeSpeed(level * 5);
 	}
 }

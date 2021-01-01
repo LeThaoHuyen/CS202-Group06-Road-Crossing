@@ -28,7 +28,7 @@ public:
 		return currentLevel;
 	}
 
-	void drawGame();
+	void drawGame(bool, bool);
 	void drawPeople();
 	void newGame(int level);
 	void resetGame();
@@ -41,8 +41,7 @@ public:
 	void processWin();
 	void processLose();
 	// void processPassLevel();
-
-
+	
 	bool checkCollision();
 	void displayMenu();
 	void showOption(int option, int key);

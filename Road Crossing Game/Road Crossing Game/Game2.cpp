@@ -22,10 +22,21 @@ Game2::~Game2() {
 void Game2::clearGame() {
 	laneManager.clear();
 }
-void Game2::drawGame() {
+void Game2::drawGame(bool isLaneCarRed, bool isLaneTruckRed) {
 	//laneManager.draw(screen);
+	if (isLaneCarRed)
+		laneManager.stopVehicles("car");
+	else laneManager.moveVehicles(currentLevel, "car");
+	
+	if (isLaneTruckRed)
+		laneManager.stopVehicles("truck");
+	else laneManager.moveVehicles(currentLevel, "truck");
+
 	laneManager.update();
 	laneManager.draw(screen);
+
+	screen.drawTrafficLight(isLaneCarRed, isLaneTruckRed);
+
 	//player.selfDraw(screen);
 	Sleep(1000);
 }
@@ -33,6 +44,7 @@ void Game2::drawPeople()
 {
 	player.selfDraw(screen);
 }
+
 void Game2::newGame(int level) {
 	currentLevel = level;
 	m_isRunning = true;
@@ -40,8 +52,9 @@ void Game2::newGame(int level) {
 	screen.displayMenu();
 	screen.drawFrame();
 	player.selfDraw(screen);
-	drawGame();
+	drawGame(false, false);
 }
+
 void Game2::resetGame() {
 	clearGame();
 	m_isRunning = true;
@@ -106,7 +119,6 @@ void Game2::processLose()
 		}	
 	}
 }
-
 
 bool Game2::checkCollision() {
 	return laneManager.checkCollision(player);
