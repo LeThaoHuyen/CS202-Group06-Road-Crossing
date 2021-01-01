@@ -111,3 +111,18 @@ void Game2::processLose()
 bool Game2::checkCollision() {
 	return laneManager.checkCollision(player);
 }
+
+void Game2::displayMenu()
+{
+	screen.displayMenu();
+}
+
+void Game2::showOption(int option, int key)
+{
+	if (key == key_Enter) {
+		screen.showChoice(option);
+	}
+	else {
+		screen.showOption(option);
+	}
+}

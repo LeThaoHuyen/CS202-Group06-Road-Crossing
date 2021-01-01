@@ -45,9 +45,41 @@ void runGame() {
 }
 int main() 
 {
-	game.newGame(2);
-	thread t1(runGame);
+	/****  menu ****/
+	game.displayMenu();
 	int key;
+	int option = 0;
+	while (true) {
+		key = _getch();
+		if (key == key_Enter) {
+			game.showOption(option, key);
+			break;
+
+		}
+		if (key == key_UpArrow) {
+			option = option == 0 ? 2 : option - 1;
+			game.showOption(option, key);
+
+		}
+		if (key == key_DownArrow) {
+			option = option == 2 ? 0 : option + 1;
+			game.showOption(option, key);
+
+		}
+
+	}
+	if (option == 0) {
+		game.newGame(2);
+	}
+	else if (option == 1) {
+		game.loadGame();
+	}
+	else if (option == 2) {
+		exit(0);
+	}
+	
+	thread t1(runGame);
+	
 	while (true) {
 		key = _getch();
 		if (key == key_Pause) {
@@ -83,35 +115,7 @@ int main()
 	}
 	
 
-	///* Test  */
-	///*Lane lane(1, "bird");
-	//Lane lane1(1, "dinosaur");
-	//Lane lane2(1, "car");
-	//Lane lane3(1, "truck");*/
-	//LaneManager manager(1);
-	//Buffer2 screen(1300, 1300, 60, 30);
-	//screen.displayMenu();
-	//screen.drawFrame();
-	///*lane.draw(screen);
-	//lane1.draw(screen);
-	//lane2.draw(screen);
-	//lane3.draw(screen);*/
-	//manager.draw(screen);
-
-	//for (int i = 0; i < 100; i++) {
-	//	/*lane.update();
-	//	lane1.update();
-	//	lane2.update();
-	//	lane3.update();*/
-	//	manager.update();
-	//	//screen.clear();
-	//	/*lane.draw(screen);
-	//	lane1.draw(screen);
-	//	lane2.draw(screen);
-	//	lane3.draw(screen);*/
-	//	manager.draw(screen);
-	//	Sleep(1000);
-	//}
+	
 
 
 

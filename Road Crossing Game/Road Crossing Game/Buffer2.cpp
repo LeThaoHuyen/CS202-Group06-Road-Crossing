@@ -125,28 +125,77 @@ void Buffer2::displayMenu()
 			}
 		}
 	}
-	/*console.gotoXY(60, 10);
+	console.gotoXY(87, 10);
+	console.setTextColor(Cyan);
 	cout << "CROSSING ROAD";
-	console.gotoXY(50, 13);
+	console.setTextColor(White);
+	console.gotoXY(82, 13);
 	cout << "------------------------";
-	console.gotoXY(50, 14);
+	console.gotoXY(82, 14);
 	cout << "*      New game        *";
-	console.gotoXY(50, 15);
+	console.gotoXY(82, 15);
 	cout << "------------------------";
-	console.gotoXY(50, 16);
+	console.gotoXY(82, 16);
 	cout << "------------------------";
-	console.gotoXY(50, 17);
+	console.gotoXY(82, 17);
 	cout << "*      Load game       *";
-	console.gotoXY(50, 18);
+	console.gotoXY(82, 18);
 	cout << "------------------------";
-	console.gotoXY(50, 19);
+	console.gotoXY(82, 19);
 	cout << "------------------------";
-	console.gotoXY(50, 20);
+	console.gotoXY(82, 20);
 	cout << "*      Exit game       *";
-	console.gotoXY(50, 21);
+	console.gotoXY(82, 21);
 	cout << "------------------------";
-	console.gotoXY(70, 70);*/
+	console.gotoXY(80, 14);
+	cout << ">";
+	
 
+}
+
+void Buffer2::showOption(int option)
+{
+
+	console.gotoXY(80, 14);
+	cout << (char)32;
+	console.gotoXY(80, 17);
+	cout << (char)32;
+	console.gotoXY(80, 20);
+	cout << (char)32;
+	if (option == 0) {
+		console.gotoXY(80, 14);
+		cout << ">";
+	}
+	else if (option == 1) {
+		console.gotoXY(80, 17);
+		cout << ">";
+
+	}
+	else if (option == 2) {
+		console.gotoXY(80, 20);
+		cout << ">";
+	}
+}
+
+void Buffer2::showChoice(int option)
+{
+
+	if (option == 0) {
+		console.gotoXY(82, 14);
+		console.setTextColor(Red);
+		cout << "*      New game        *";
+	}
+	else if (option == 1) {
+		console.gotoXY(82, 17);
+		console.setTextColor(Red);
+		cout << "*      Load game       *";
+	}
+	else if (option == 2) {
+		console.gotoXY(82, 20);
+		console.setTextColor(Red);
+		cout << "*      Exit game       *";
+	}
+	console.setTextColor(White);
 }
 
 

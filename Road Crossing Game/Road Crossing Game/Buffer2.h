@@ -44,6 +44,8 @@ public:
 	Buffer2(int, int, int, int);
 	void init(int, int, int, int);
 	void displayMenu();
+	void showOption(int option);
+	void showChoice(int option);
 	void drawFrame();
 	void drawObject(int, int, string type, int speed);
 	void drawPeople(int x, int y, int speedX, int speedY, string direction);
