@@ -60,19 +60,19 @@ int main()
 		}
 		if (key == key_UpArrow) {
 			game.player.Up();
-			game.player.selfDraw();
+			//game.player.selfDraw();
 		}
 		if (key == key_DownArrow) {
 			game.player.Down();
-			game.player.selfDraw();
+			//game.player.selfDraw();
 		}
 		if (key == key_RightArrow) {
 			game.player.Right();
-			game.player.selfDraw();
+			//game.player.selfDraw();
 		}
 		if (key == key_LeftArrow) {
 			game.player.Left();
-			game.player.selfDraw();
+			//game.player.selfDraw();
 		}
 	}
 	

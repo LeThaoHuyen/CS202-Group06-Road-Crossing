@@ -284,3 +284,44 @@ void Buffer2::drawObject(int x, int y, string type, int speed) {
 	}
 }
 
+void Buffer2::drawPeople(int x, int y, int speedX, int speedY, string direction)
+{
+	int newX = x, newY = y;
+	if (direction == "down")
+	{
+		newY -= speedY;
+	}
+	else if (direction == "up")
+	{
+		newY += speedY;
+	}
+	else if (direction == "left")
+	{
+		newX += speedX;
+	}
+	else // right
+	{
+		newX -= speedX;
+	}
+
+	const char TITLE[][3] = { {32,153,32},
+							{218, 219, 191 },
+							{32,208,32} };
+
+	console.setTextColor(BlackAll);
+	int i, j;
+	for (i = 0; i < 3; ++i) {
+		console.gotoXY(newX, newY++);
+		for (j = 0; j < 3; ++j) {
+			cout << TITLE[i][j];
+		}
+	}
+
+	console.setTextColor(Cyan);
+	for (i = 0; i < 3; ++i) {
+		console.gotoXY(x, y++);
+		for (j = 0; j < 3; ++j) {
+			cout << TITLE[i][j];
+		}
+	}
+}

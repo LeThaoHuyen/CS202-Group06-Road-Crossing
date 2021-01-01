@@ -34,30 +34,34 @@ void People::init(int w, int h) {
 }
 void People::Up()
 {
-	invisible();
+	//invisible();
 	PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 	mY -= speedY;
+	direction = "up";
 }
 void People::Down()
 {
-	invisible();
+	//invisible();
 	PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 	mY += speedY;
+	direction = "down";
 }
 void People::Left()
 {
 	if (mX - speedX > frameLeftBorder) {
-		invisible();
+		//invisible();
 		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 		mX -= speedX;
+		direction = "left";
 	}
 }
 void People::Right()
 {
 	if (mX + speedX < frameRightBorder) {
-		invisible();
+		//invisible();
 		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 		mX += speedX;
+		direction = "right";
 	}
 }
 void People::Dead()
@@ -95,46 +99,49 @@ bool People :: isOnScreen(Buffer& buffer)
 {
 	return mX >= 0 && mX < buffer.bufferWidth();
 }
-void People::selfDraw() {
-	HANDLE  hConsole;
-	Console g;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	int x, y;
-	x = this->mX;
-	y = this->mY;
-	const char TITLE[][3] = { {32,153,32},
-							{218, 219, 191 },
-							{32,208,32} };
-
-	g.setTextColor(Cyan);
-	int i, j;
-	for (i = 0; i < 3; ++i) {
-		g.gotoXY(x, y++);
-		for (j = 0; j < 3; ++j) {
-			cout << TITLE[i][j];
-		}
-	}
-}
-void People::invisible() {
-	HANDLE  hConsole;
-	Console g;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	int x, y;
-	x = this->mX;
-	y = this->mY;
-	const char TITLE[][3] = { {32,153,32},
-							{218, 219, 191 },
-							{32,208,32} };
-
-	g.setTextColor(BlackAll);
-	int i, j;
-	for (i = 0; i < 3; ++i) {
-		g.gotoXY(x, y++);
-		for (j = 0; j < 3; ++j) {
-			cout << TITLE[i][j];
-			
-		}
-	}
+//void People::selfDraw() {
+//	HANDLE  hConsole;
+//	Console g;
+//	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+//	int x, y;
+//	x = this->mX;
+//	y = this->mY;
+//	const char TITLE[][3] = { {32,153,32},
+//							{218, 219, 191 },
+//							{32,208,32} };
+//
+//	g.setTextColor(Cyan);
+//	int i, j;
+//	for (i = 0; i < 3; ++i) {
+//		g.gotoXY(x, y++);
+//		for (j = 0; j < 3; ++j) {
+//			cout << TITLE[i][j];
+//		}
+//	}
+//}
+//void People::invisible(Buffer2 & buffer) {
+//	HANDLE  hConsole;
+//	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+//	int x, y;
+//	x = this->mX;
+//	y = this->mY;
+//	const char TITLE[][3] = { {32,153,32},
+//							{218, 219, 191 },
+//							{32,208,32} };
+//
+//	g.setTextColor(BlackAll);
+//	int i, j;
+//	for (i = 0; i < 3; ++i) {
+//		g.gotoXY(x, y++);
+//		for (j = 0; j < 3; ++j) {
+//			cout << TITLE[i][j];
+//			
+//		}
+//	}
+//}
+void People::selfDraw(Buffer2& buffer2)
+{
+	buffer2.drawPeople(mX, mY, speedX, speedY, direction);
 }
 People::~People()
 {

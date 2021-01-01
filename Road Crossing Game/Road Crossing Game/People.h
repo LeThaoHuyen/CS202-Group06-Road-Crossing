@@ -23,14 +23,16 @@ public:
 	string getShape();
 	int getX();
 	int getY();
-	void selfDraw();
+	//void selfDraw();
 	void draw(Buffer& buffer);
 	bool isOnScreen(Buffer& buffer);
-	void invisible();
+	void invisible(Buffer2 & buffer);
+	void selfDraw(Buffer2 & buffer2);
 private:
 	int mX, mY;
 	bool mState;
 	int speedX;
 	int speedY;
 	string shape;
+	string direction;
 };

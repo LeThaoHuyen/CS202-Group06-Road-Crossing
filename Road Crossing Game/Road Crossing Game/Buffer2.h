@@ -46,6 +46,7 @@ public:
 	void displayMenu();
 	void drawFrame();
 	void drawObject(int, int, string type, int speed);
+	void drawPeople(int x, int y, int speedX, int speedY, string direction);
 	void clear();
 	int width() { return game_width; }
 };
