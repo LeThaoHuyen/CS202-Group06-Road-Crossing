@@ -47,7 +47,6 @@ void runGame() {
 }
 
 
-
 void trafficLight() {
 	time_t currentTime;
 
@@ -71,16 +70,12 @@ void trafficLight() {
 
 int main() 
 {
-<<<<<<< Updated upstream
 	/****  menu ****/
 	game.displayMenu();
-=======
-	game.newGame(2);
-	thread t1(runGame);
-	thread t2(trafficLight);
->>>>>>> Stashed changes
+	
 	int key;
 	int option = 0;
+	
 	while (true) {
 		key = _getch();
 		if (key == key_Enter) {
@@ -109,9 +104,9 @@ int main()
 	else if (option == 2) {
 		exit(0);
 	}
-	
+
 	thread t1(runGame);
-	
+	thread t2(trafficLight);
 	while (true) {
 		key = _getch();
 		if (key == key_Pause) {
@@ -150,11 +145,6 @@ int main()
 		}
 	}
 	
-
-	
-
-
-
-	
+		
 	return 0;
 }
