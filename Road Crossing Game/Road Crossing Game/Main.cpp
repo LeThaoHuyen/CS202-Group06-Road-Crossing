@@ -42,6 +42,9 @@ void runGame() {
 			game.pauseGame();
 			game.processLose();
 		}
+		if (game.isWin()) {
+			game.pauseGame();
+		}
 		
 	}
 }

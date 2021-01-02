@@ -3,6 +3,7 @@
 #include <iostream>
 #include <Windows.h>
 #include "Console.h"
+#include <mutex>
 using namespace std;
 class Buffer2
 {
@@ -11,6 +12,7 @@ private:
 	int game_width, game_height;
 	std::vector<std::vector<char>> board;
 	Console console;
+	mutex mtx;
 
 	/* shape */
 	string truck[4] = {

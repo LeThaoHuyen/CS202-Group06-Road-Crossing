@@ -91,7 +91,6 @@ bool LaneManager::checkCollision(People& player)
 	
 	for (int i = lanes.size() - 1; i > -1; --i) {
 		if (lanes[i]->checkCollision(x, y)) {
-			cout << x + 200 << " ";
 			return true;
 		}
 	}

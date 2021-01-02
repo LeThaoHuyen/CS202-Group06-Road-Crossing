@@ -35,16 +35,20 @@ void People::init(int w, int h) {
 void People::Up()
 {
 	//invisible();
-	PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
-	mY -= speedY;
-	direction = "up";
+	if (mY - speedY > 1) {
+		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
+		mY -= speedY;
+		direction = "up";
+	}
 }
 void People::Down()
 {
 	//invisible();
-	PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
-	mY += speedY;
-	direction = "down";
+	if (mY + speedY < 37) {
+		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
+		mY += speedY;
+		direction = "down";
+	}
 }
 void People::Left()
 {

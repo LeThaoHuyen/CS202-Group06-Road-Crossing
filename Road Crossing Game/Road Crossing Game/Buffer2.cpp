@@ -68,7 +68,7 @@ void Buffer2::init(int gw, int gh, int fw, int fh) {
 void Buffer2::displayMenu()
 {
 
-
+	mtx.lock();
 	for (int i = 0; i < 25; i++) {
 		if (i == 0 || i == 24) {
 			console.gotoXY(i + 1, 4);
@@ -149,13 +149,13 @@ void Buffer2::displayMenu()
 	cout << "------------------------";
 	console.gotoXY(80, 14);
 	cout << ">";
-	
+	mtx.unlock();
 
 }
 
 void Buffer2::showOption(int option)
 {
-
+	mtx.lock();
 	console.gotoXY(80, 14);
 	cout << (char)32;
 	console.gotoXY(80, 17);
@@ -175,11 +175,12 @@ void Buffer2::showOption(int option)
 		console.gotoXY(80, 20);
 		cout << ">";
 	}
+	mtx.unlock();
 }
 
 void Buffer2::showChoice(int option)
 {
-
+	mtx.lock();
 	if (option == 0) {
 		console.gotoXY(82, 14);
 		console.setTextColor(Red);
@@ -196,6 +197,7 @@ void Buffer2::showChoice(int option)
 		cout << "*      Exit game       *";
 	}
 	console.setTextColor(White);
+	mtx.unlock();
 }
 
 
@@ -210,6 +212,7 @@ void Buffer2::clear() {
 	}
 }
 void Buffer2::drawFrame() {
+	mtx.lock();
 	console.hideCursor();
 	for (int i = 30; i < game_width; i++) {
 		for (int j = 1; j <= 37; j++) {
@@ -244,10 +247,12 @@ void Buffer2::drawFrame() {
 			}
 		}
 	}
+	mtx.unlock();
 
 }
 
 void Buffer2::drawObject(int x, int y, string type, int speed) {
+	mtx.lock();
 	if (type == "car") {
 		console.setTextColor(Black);
 		for (int i = 0; i < 4; i++) {
@@ -331,10 +336,12 @@ void Buffer2::drawObject(int x, int y, string type, int speed) {
 			}
 		}
 	}
+	mtx.unlock();
 }
 
 void Buffer2::drawPeople(int x, int y, int speedX, int speedY, string direction)
 {
+	mtx.lock();
 	int newX = x, newY = y;
 	if (direction == "down")
 	{
@@ -356,26 +363,34 @@ void Buffer2::drawPeople(int x, int y, int speedX, int speedY, string direction)
 	const char TITLE[][3] = { {32,153,32},
 							{218, 219, 191 },
 							{32,208,32} };
-
-	console.setTextColor(BlackAll);
 	int i, j;
+	string human[3] = {
+		" () ",
+		"-||-",
+		"//\\\\"
+
+	};
+	console.setTextColor(Black);
+
 	for (i = 0; i < 3; ++i) {
-		console.gotoXY(newX, newY++);
-		for (j = 0; j < 3; ++j) {
-			cout << TITLE[i][j];
+		for (j = 0; j < human[i].length(); ++j) {
+			console.gotoXY(newX + j, newY + i);
+			cout << (char)32;
 		}
 	}
 
 	console.setTextColor(Cyan);
 	for (i = 0; i < 3; ++i) {
-		console.gotoXY(x, y++);
-		for (j = 0; j < 3; ++j) {
-			cout << TITLE[i][j];
+		for (j = 0; j < human[i].length(); j++) {
+			console.gotoXY(x + j, y + i);
+			cout << human[i][j];
 		}
 	}
+	mtx.unlock();
 }
 
 void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
+	mtx.lock();
 	ColorCode color1, color2;
 	color1 = isLaneCarRed ? Red : Gray;
 	color2 = isLaneCarRed ? Gray : Green;
@@ -399,4 +414,5 @@ void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
 	console.setTextColor(color2);
 	console.gotoXY(157, 20);
 	cout << char(254);
+	mtx.unlock();
 }
