@@ -63,6 +63,7 @@ void trafficLight() {
 
 		if (currentTime % 13 == 0) {
 			isLaneTruckRed = true;
+			std::this_thread::sleep_for(5s);
 			Sleep(5000);
 		}
 
@@ -74,7 +75,7 @@ void trafficLight() {
 int main() 
 {
 	/****  menu ****/
-	game.displayMenu();
+	game.displayMainMenu();
 	
 	int key;
 	int option = 0;
@@ -115,36 +116,50 @@ int main()
 		if (key == key_Pause) {
 			game.pauseGame();
 		}
-		if (key == key_UnPause) {
+		else if (key == key_UnPause) {
 			if (!game.isRunning()) {
 				game.resumeGame();
 				t1.detach();
 				t1 = thread(runGame);
 			}
 		}
-		if (key == key_UpArrow) {
-			game.player.Up();
-			game.drawPeople();
-			
-		}
-		if (key == key_DownArrow) {
-			game.player.Down();
-			game.drawPeople();
 		
-		}
-		if (key == key_RightArrow) {
-			game.player.Right();
-			game.drawPeople();
-			
-		}
-		if (key == key_LeftArrow) {
-			game.player.Left();
-			game.drawPeople();
-			
-		}
-		if (key == key_Save) {
-			
+		else if (key == key_Save) {
+			game.pauseGame();
 			game.saveGame();
+			game.resumeGame();
+			t1.detach();
+			t1 = thread(runGame);
+		}
+		
+		else if (key == key_Exit) {
+			
+		}
+
+		else if (game.isRunning()) {
+			if (key == key_UpArrow) {
+				game.player.Up();
+				//game.player.selfDraw();
+				game.drawPeople();
+			}
+
+			if (key == key_DownArrow) {
+				game.player.Down();
+				//game.player.selfDraw();
+				game.drawPeople();
+
+			}
+			if (key == key_RightArrow) {
+				game.player.Right();
+				//game.player.selfDraw();
+				game.drawPeople();
+
+			}
+			if (key == key_LeftArrow) {
+				game.player.Left();
+				game.drawPeople();
+
+			}
 		}
 	}
 	

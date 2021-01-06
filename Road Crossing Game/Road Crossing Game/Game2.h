@@ -44,6 +44,7 @@ public:
 	
 	bool checkCollision();
 	void displayMenu();
+	void displayMainMenu();
 	void showOption(int option, int key);
 
 

@@ -104,6 +104,7 @@ bool People :: isOnScreen(Buffer& buffer)
 	return mX >= 0 && mX < buffer.bufferWidth();
 }
 //void People::selfDraw() {
+//	mtx.lock();
 //	HANDLE  hConsole;
 //	Console g;
 //	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -123,6 +124,8 @@ bool People :: isOnScreen(Buffer& buffer)
 //		}
 //	}
 //}
+
+
 //void People::invisible(Buffer2 & buffer) {
 //	HANDLE  hConsole;
 //	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

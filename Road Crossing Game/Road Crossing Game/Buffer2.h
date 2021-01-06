@@ -46,6 +46,7 @@ public:
 	Buffer2(int, int, int, int);
 	void init(int, int, int, int);
 	void displayMenu();
+	void displayMainMenu();
 	void showOption(int option);
 	void showChoice(int option);
 	void drawFrame();
@@ -54,6 +55,8 @@ public:
 	void clear();
 	int width() { return game_width; }
 
+	void displayConfirm(ColorCode);
+	void announceComplete(ColorCode);
 	void drawTrafficLight(bool, bool);
 	
 };

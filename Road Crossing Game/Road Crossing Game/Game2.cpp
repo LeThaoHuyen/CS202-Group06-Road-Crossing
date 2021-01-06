@@ -38,6 +38,7 @@ void Game2::drawGame(bool isLaneCarRed, bool isLaneTruckRed) {
 	screen.drawTrafficLight(isLaneCarRed, isLaneTruckRed);
 
 	//player.selfDraw(screen);
+	//std::this_thread::sleep_for(1s);
 	Sleep(1000);
 }
 void Game2::drawPeople()
@@ -67,11 +68,20 @@ void Game2::resumeGame() {
 	m_isRunning = true;
 }
 void Game2::saveGame() {
-	ofstream out;
-	out.open("save.txt");
-	if (out.is_open()) {
-		out << currentLevel << player.getX() << player.getY();
+	screen.displayConfirm(Pink);
+	int key;
+	key = _getch();
+	if (key == 121) {
+		ofstream out;
+		out.open("save.txt");
+		if (out.is_open()) {
+			out << currentLevel << " " << player.getX() << " " << player.getY();
+			out.close();
+			screen.announceComplete(Pink);
+			Sleep(200);
+		}
 	}
+	screen.announceComplete(BlackAll);
 }
 void Game2::loadGame() {
 	ifstream in;
@@ -87,7 +97,6 @@ void Game2::loadGame() {
 		}
 		in.close();
 	}
-	
 }
 
 bool Game2::isWin()
@@ -122,6 +131,11 @@ void Game2::processLose()
 
 bool Game2::checkCollision() {
 	return laneManager.checkCollision(player);
+}
+
+void Game2::displayMainMenu()
+{
+	screen.displayMainMenu();
 }
 
 void Game2::displayMenu()

@@ -125,7 +125,7 @@ void Buffer2::displayMenu()
 			}
 		}
 	}
-	console.gotoXY(87, 10);
+	/*console.gotoXY(87, 10);
 	console.setTextColor(Cyan);
 	cout << "CROSSING ROAD";
 	console.setTextColor(White);
@@ -148,7 +148,7 @@ void Buffer2::displayMenu()
 	console.gotoXY(82, 21);
 	cout << "------------------------";
 	console.gotoXY(80, 14);
-	cout << ">";
+	cout << ">";*/
 	mtx.unlock();
 
 }
@@ -177,7 +177,52 @@ void Buffer2::showOption(int option)
 	}
 	mtx.unlock();
 }
+void Buffer2::displayMainMenu() {
+	const char Title[][82] = { { 32,95,95,95,95,95,32,32,     32,32,32,32,32,32,32,		 32,32,32,32,32,32,32,		  32,32,32,32,32,'_',32,	   32,32,32,32,32,  32,32,32,'_','_','_','_',32,	32,32,32,32,32,32,		 32,32,32,32,32,32,32,		 32,32,32,32,32,	   32,32,32,32,32,		 32,32,32,	  32,32,32,32,32,32,32,		   },
+							   { 178,32,32,'_','_',32,92,32,	 32,32,32,32,32,32,32,		 32,32,32,32,32,32,32,		  32,32,32,32,178,32,178,	   32,32,32,32,32,  32,32,'/',32,'_','_','_',178,	32,32,32,32,32,32,		 32,32,32,32,32,32,32,		 32,32,32,32,32,	   32,32,32,32,32,		 32,32,32,	  32,32,32,32,32,32,32,		   },
+							   { 178,32,178,'_','_',')',32,')', 32,32,'_','_','_',32,32,	 32,32,'_','_',32,'_',32,	  32,32,'_','_',178,32,178,	   32,32,32,32,32,  32,'/',32,32,178,32,32,32,		32,'_',32,'_','_',32,	 32,32,'_','_','_',32,32,	 32,'_','_','_',32,    32,'_','_','_',32,	 '(','_',')', 32,'_',32,'_','_',32,32,	  32,32,'_','_',32,'_',32},
+							   { 178,32,32,'_',32,32,'/',32,	 32,'/',32,'_',32,'\\',32,	 32,'/',32,'_','\'',32,178,	  32,'/',32,'_',32,32,178,	   32,32,32,32,32,  '|',32,32,32,178,32,32,32,		178,32,'\'','_','_',178, 32,'/',32,'_',32,'\\',32,	 '/',32,'_','_',178,   '/',32,'_','_',178,   178,32,178,  '|',32,'\'','_',32,'\\',32, 32,'/',32,'_','\'',32,178},
+							   { 178,32,178,32,92,32,92,32,	 '(',32,'(','_',')',32,')',	 '(',32,'(','_',')',32,178,	  '(',32,'(','_',')',32,178,   32,32,32,32,32,  32,'\\',32,32,178,'_','_','_',  178,32,178,32,32,32,	 '(',32,'(','_',')',32,')',  '\\','_','_',32,'\\', '\\','_','_',32,'\\', 178,32,178,  '|',32,178,32,'|',32,'|',	  '(',32,'(','_',')',32,178},
+							   { 178,'_',178,32,32,92,'_',92,	 32,'\\','_','_','_','/',32, 32,'\\','_','_',',','_',178, 32,'\\','_','_',',','_',178, 32,32,32,32,32,  32,32,'\\','_','_','_','_',178, 178,'_',178,32,32,32,	 32,'\\','_','_','_','/',32, 178,'_','_','_','/',  178,'_','_','_','/',  178,'_',178, '|','_',178,32,'|','_','|', 32,'\\','_','_',',',32,178},
+							   { 32,32,32,32,32,32,32,32,		 32,32,32,32,32,32,32,		 32,32,32,32,32,32,32,		  32,32,32,32,32,32,32,		   32,32,32,32,32,  32,32,32,32,32,32,32,32,		32,32,32,32,32,32,		 32,32,32,32,32,32,32,		 32,32,32,32,32,	   32,32,32,32,32,		 32,32,32,	  32,32,32,32,32,32,32,		  32,178,'_','_','_','/'} };
+	HANDLE  hConsole;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+	int row = 3;
+	int column = 55;
+	int i, j;
+	for (i = 0; i < 7; ++i) {
+		console.gotoXY(column, row++);
+		for (j = 0; j < 82; ++j) {
+			SetConsoleTextAttribute(hConsole, i);
+			//console.setTextColor(Yellow);
+			cout << Title[i][j];
+		}
+	}
+
+	console.setTextColor(White);
+	console.gotoXY(82, 13);
+	cout << "------------------------";
+	console.gotoXY(82, 14);
+	cout << "*      New game        *";
+	console.gotoXY(82, 15);
+	cout << "------------------------";
+	console.gotoXY(82, 16);
+	cout << "------------------------";
+	console.gotoXY(82, 17);
+	cout << "*      Load game       *";
+	console.gotoXY(82, 18);
+	cout << "------------------------";
+	console.gotoXY(82, 19);
+	cout << "------------------------";
+	console.gotoXY(82, 20);
+	cout << "*      Exit game       *";
+	console.gotoXY(82, 21);
+	cout << "------------------------";
+	console.gotoXY(80, 14);
+	cout << ">";
+	console.hideCursor();
+}
 void Buffer2::showChoice(int option)
 {
 	mtx.lock();
@@ -415,4 +460,44 @@ void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
 	console.gotoXY(157, 20);
 	cout << char(254);
 	mtx.unlock();
+}
+
+void Buffer2:: displayConfirm(ColorCode color) {
+	int row = 15;
+	int column = 70;
+	console.setTextColor(color);
+	console.gotoXY(column, row++);
+	cout << "-----------------------------------------------\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "|        Are you sure you want to exit?       |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "|             Press Y(yes) or N(no)           |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "-----------------------------------------------\n";
+}
+
+void Buffer2::announceComplete(ColorCode color) {
+	int row = 15;
+	int column = 70;
+	console.setTextColor(color);
+	console.gotoXY(column, row++);
+	cout << "-----------------------------------------------\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "|                 Save successfully!          |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                             |\n";
+	console.gotoXY(column, row++);
+	cout << "-----------------------------------------------\n";
 }
