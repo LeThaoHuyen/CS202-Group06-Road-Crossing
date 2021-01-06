@@ -71,8 +71,6 @@ void Buffer2::displayMenu()
 	mtx.lock();
 	for (int i = 0; i < 25; i++) {
 		if (i == 0 || i == 24) {
-			console.gotoXY(i + 1, 4);
-			cout << "|";
 			console.gotoXY(i + 1, 2);
 			cout << "|";
 		}
@@ -80,14 +78,12 @@ void Buffer2::displayMenu()
 		cout << "-";
 		console.gotoXY(i + 1, 3);
 		cout << "-";
-		console.gotoXY(i + 1, 5);
-		cout << "-";
+		
 	}
 
 	console.gotoXY(3, 2);
-	cout << "User: ";
-	console.gotoXY(3, 4);
 	cout << "Level: ";
+	
 
 
 	for (int i = 0; i < 25; i++) {
@@ -499,7 +495,7 @@ void Buffer2::announceComplete() {
 	console.gotoXY(column, row++);
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-<<<<<<< Updated upstream
+
 	cout << "-----------------------------------------------\n";
 }
 
@@ -527,8 +523,14 @@ void Buffer2::printCongrat() {
 			cout << congrat[i][j];
 		}
 	}
-=======
+
 	cout << "----------------------------------------------------------\n";
+}
+
+void Buffer2::showLevel(int level)
+{
+	console.gotoXY(10, 2);
+	cout << level;
 }
 
 void Buffer2::deleteAnnounceFrame() {
@@ -551,5 +553,5 @@ void Buffer2::deleteAnnounceFrame() {
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
->>>>>>> Stashed changes
+
 }

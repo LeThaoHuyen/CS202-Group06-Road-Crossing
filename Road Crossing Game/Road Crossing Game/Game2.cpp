@@ -54,6 +54,7 @@ void Game2::newGame(int level) {
 	screen.displayMenu();
 	screen.drawFrame();
 	player.selfDraw(screen);
+	screen.showLevel(level);
 	drawGame(false, false);
 }
 
@@ -92,6 +93,7 @@ void Game2::loadGame() {
 		if (in >> level >> x >> y) {
 			player.init(x, y);
 			newGame(level);
+			
 		}
 		else {
 			// no game to load

@@ -18,7 +18,8 @@ People::People(int w, int h)
 	//shape += (char)223;
 	shape += (char)201;
 	speedX = 5;
-	speedY = (h + 2) / 6;
+	// Speed y changes only if the frame height changes
+	speedY = 6;
 }
 
 void People::init(int w, int h) {
@@ -30,7 +31,8 @@ void People::init(int w, int h) {
 	//shape += (char)223;
 	shape += (char)201;
 	speedX = 5;
-	speedY = (h + 2) / 6;
+	// Speed y changes only if the frame height changes
+	speedY = 6; 
 }
 void People::Up()
 {

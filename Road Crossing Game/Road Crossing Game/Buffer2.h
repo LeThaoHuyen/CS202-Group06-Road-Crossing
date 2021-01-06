@@ -60,5 +60,6 @@ public:
 	void deleteAnnounceFrame();
 	void drawTrafficLight(bool, bool);
 	void printCongrat();
+	void showLevel(int level);
 };
 
