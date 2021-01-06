@@ -109,13 +109,18 @@ bool Game2::isWin()
 void Game2::processWin()
 {
 	if (isWin())
+	{
+		PlaySound(TEXT("Sound/LevelUp.wav"), NULL, SND_ASYNC);
+		screen.printCongrat();
 		newGame(++currentLevel);
+	}
 }
 
 void Game2::processLose()
 {
 	if (laneManager.checkCollision(player))
 	{
+		PlaySound(TEXT("Sound/GameOver.wav"), NULL, SND_ASYNC);
 		int input = toupper(_getch());
 		if (input == 'y' || input == 'Y')
 		{

@@ -34,7 +34,6 @@ bool isLaneTruckRed = false;
 // demo
 void runGame() {
 	while (game.isRunning()) {
-		
 		game.drawGame(isLaneCarRed, isLaneTruckRed);
 		
 		// Test collision
@@ -45,7 +44,6 @@ void runGame() {
 		if (game.isWin()) {
 			game.pauseGame();
 		}
-		
 	}
 }
 
@@ -74,6 +72,7 @@ void trafficLight() {
 
 int main() 
 {
+	PlaySound(TEXT("Sound/NhacNen.wav"), NULL, SND_ASYNC);
 	/****  menu ****/
 	game.displayMainMenu();
 	
@@ -97,7 +96,6 @@ int main()
 			game.showOption(option, key);
 
 		}
-
 	}
 	if (option == 0) {
 		game.newGame(2);
@@ -108,6 +106,7 @@ int main()
 	else if (option == 2) {
 		exit(0);
 	}
+	PlaySound(NULL, NULL, SND_ASYNC);
 
 	thread t1(runGame);
 	thread t2(trafficLight);

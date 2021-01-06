@@ -58,6 +58,6 @@ public:
 	void displayConfirm(ColorCode);
 	void announceComplete(ColorCode);
 	void drawTrafficLight(bool, bool);
-	
+	void printCongrat();
 };
 

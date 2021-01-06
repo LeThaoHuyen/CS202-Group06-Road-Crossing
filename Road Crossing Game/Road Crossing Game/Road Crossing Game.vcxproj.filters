@@ -106,11 +106,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="nen.mp3">
-      <Filter>Resource Files</Filter>
-    </Media>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="save.txt">
       <Filter>Resource Files</Filter>
     </Text>
