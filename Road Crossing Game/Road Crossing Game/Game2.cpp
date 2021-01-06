@@ -32,9 +32,10 @@ void Game2::drawGame(bool isLaneCarRed, bool isLaneTruckRed) {
 		laneManager.stopVehicles("truck");
 	else laneManager.moveVehicles(currentLevel, "truck");
 
+	//screen.drawFrame();
 	laneManager.update();
 	laneManager.draw(screen);
-
+	
 	screen.drawTrafficLight(isLaneCarRed, isLaneTruckRed);
 
 	//player.selfDraw(screen);
@@ -68,7 +69,7 @@ void Game2::resumeGame() {
 	m_isRunning = true;
 }
 void Game2::saveGame() {
-	screen.displayConfirm(Pink);
+	screen.displayConfirm();
 	int key;
 	key = _getch();
 	if (key == 121) {
@@ -77,11 +78,11 @@ void Game2::saveGame() {
 		if (out.is_open()) {
 			out << currentLevel << " " << player.getX() << " " << player.getY();
 			out.close();
-			screen.announceComplete(Pink);
+			screen.announceComplete();
 			Sleep(200);
 		}
 	}
-	screen.announceComplete(BlackAll);
+	screen.deleteAnnounceFrame();
 }
 void Game2::loadGame() {
 	ifstream in;
@@ -157,3 +158,4 @@ void Game2::showOption(int option, int key)
 		screen.showOption(option);
 	}
 }
+

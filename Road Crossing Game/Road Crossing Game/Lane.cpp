@@ -181,8 +181,8 @@ Lane::Lane(int level, string type)
 
 	int coordX;
 	// 5 levels add 1 more
-	for (int i = 0; i < 4 + level/5; i++) {
-		coordX = rand() % 47 + list.back()->getX() + list.back()->getLength() + 5;
+	for (int i = 0; i < 3 + level/5; i++) {
+		coordX = rand() % 47 + list.back()->getX() + list.back()->getLength() + 10;
 		if (type == "bird")
 			list.push_back(new Bird(coordX, 11, laneSpeed, Blue));
 		else if (type == "dinosaur")

@@ -462,43 +462,44 @@ void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
 	mtx.unlock();
 }
 
-void Buffer2:: displayConfirm(ColorCode color) {
+void Buffer2:: displayConfirm() {
 	int row = 15;
 	int column = 70;
-	console.setTextColor(color);
+	console.setTextColor(Pink);
 	console.gotoXY(column, row++);
-	cout << "-----------------------------------------------\n";
+	cout << "----------------------------------------------------------\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-	cout << "|        Are you sure you want to exit?       |\n";
+	cout << "|            Are you sure you want to save?              |\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|    This action may overwrite the existing saved game   |\n";
 	console.gotoXY(column, row++);
-	cout << "|             Press Y(yes) or N(no)           |\n";
+	cout << "|                 Press Y(yes) or N(no)                  |\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-	cout << "-----------------------------------------------\n";
+	cout << "----------------------------------------------------------\n";
 }
 
-void Buffer2::announceComplete(ColorCode color) {
+void Buffer2::announceComplete() {
 	int row = 15;
 	int column = 70;
-	console.setTextColor(color);
+	console.setTextColor(Pink);
 	console.gotoXY(column, row++);
-	cout << "-----------------------------------------------\n";
+	cout << "----------------------------------------------------------\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-	cout << "|                 Save successfully!          |\n";
+	cout << "|                 Save successfully!                     |\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-	cout << "|                                             |\n";
+	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
+<<<<<<< Updated upstream
 	cout << "-----------------------------------------------\n";
 }
 
@@ -526,4 +527,29 @@ void Buffer2::printCongrat() {
 			cout << congrat[i][j];
 		}
 	}
+=======
+	cout << "----------------------------------------------------------\n";
+}
+
+void Buffer2::deleteAnnounceFrame() {
+	int row = 15;
+	int column = 70;
+	console.setTextColor(BlackAll);
+	console.gotoXY(column, row++);
+	cout << "----------------------------------------------------------\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	console.setTextColor(White);
+	cout << "----------------------------------------------------------\n";
+	console.setTextColor(BlackAll);
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "----------------------------------------------------------\n";
+>>>>>>> Stashed changes
 }
