@@ -37,6 +37,7 @@ public:
 	void pauseGame();
 	void resumeGame();
 	void saveGame();
+	void autoSave();
 	bool exitGame();
 	void loadGame();
 

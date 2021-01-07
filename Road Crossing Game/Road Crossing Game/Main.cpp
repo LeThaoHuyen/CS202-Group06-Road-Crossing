@@ -74,6 +74,7 @@ void trafficLight() {
 }
 
 bool mainMenu() {
+	PlaySound(TEXT("Sound/NhacNen.wav"), NULL, SND_ASYNC);
 	game.displayMainMenu();
 
 	int key;
@@ -114,8 +115,6 @@ bool mainMenu() {
 
 int main() 
 {
-	PlaySound(TEXT("Sound/NhacNen.wav"), NULL, SND_ASYNC);
-	/****  menu ****/
 	
 	if (mainMenu() == false)
 		exit(0);
@@ -148,6 +147,9 @@ int main()
 		else if (key == key_Exit) {
 			game.pauseGame();
 			if (game.exitGame()) {
+				if (game.isWin()) {
+					game.autoSave();
+				}
 				if (mainMenu()) {
 					t1.detach();
 					t1 = thread (runGame);
@@ -167,15 +169,20 @@ int main()
 				t1 = thread(runGame);
 			}
 		}
-		/*else if (key == key_Exit and game.isWin()) {
-			game.saveGame();
-		}*/
 		
 		else if (key == key_C and (game.isWin() or !game.isRunning())) {
 			game.newGame(game.getLevel());
 			t1.detach();
 			t1 = thread(runGame);
 			
+		}
+
+		else if (key == key_R) {
+			game.pauseGame();
+			game.resetGame();
+			game.resumeGame();
+			t1.detach();
+			t1 = thread(runGame);
 		}
 
 		else if (game.isRunning()) {

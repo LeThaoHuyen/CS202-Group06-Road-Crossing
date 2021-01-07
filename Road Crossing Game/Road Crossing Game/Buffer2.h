@@ -57,6 +57,7 @@ public:
 
 	void displayConfirmSave();
 	void displayConfirmExit();
+	void displayConfirmReset();
 	void announceComplete();
 	void deleteAnnounceFrame();
 	void drawTrafficLight(bool, bool);

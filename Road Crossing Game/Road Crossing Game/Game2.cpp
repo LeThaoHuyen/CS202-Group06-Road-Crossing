@@ -60,11 +60,6 @@ void Game2::newGame(int level, int x, int y) {
 	drawGame(false, false);
 }
 
-void Game2::resetGame() {
-	clearGame();
-	m_isRunning = true;
-	newGame(currentLevel);
-}
 void Game2::pauseGame() {
 	m_isRunning = false;
 }
@@ -87,6 +82,15 @@ void Game2::saveGame() {
 		}
 	}
 	screen.deleteAnnounceFrame();
+}
+
+void Game2::autoSave() {
+	ofstream out;
+	out.open("save.txt");
+	if (out.is_open()) {
+		out << currentLevel << " " << 96 << " " << 34;
+		out.close();
+	}
 }
 
 bool Game2::exitGame() {
@@ -179,3 +183,12 @@ void Game2::showOption(int option, int key)
 	}
 }
 
+void Game2::resetGame() {
+	screen.displayConfirmReset();
+	int key;
+	key = _getch();
+	if (key == 121) {
+		newGame(currentLevel);
+	}
+	screen.deleteAnnounceFrame();
+}

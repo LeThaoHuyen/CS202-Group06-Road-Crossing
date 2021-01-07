@@ -110,6 +110,8 @@ void Buffer2::displayMenu()
 	cout << "Press E to exit";
 	console.gotoXY(3, 17);
 	cout << "Press U to continue";
+	console.gotoXY(3, 19);
+	cout << "Press R to reset";
 	console.setTextColor(Cyan);
 
 	for (int i = 30; i < game_width; i++) {
@@ -124,32 +126,7 @@ void Buffer2::displayMenu()
 			}
 		}
 	}
-	/*console.gotoXY(87, 10);
-	console.setTextColor(Cyan);
-	cout << "CROSSING ROAD";
-	console.setTextColor(White);
-	console.gotoXY(82, 13);
-	cout << "------------------------";
-	console.gotoXY(82, 14);
-	cout << "*      New game        *";
-	console.gotoXY(82, 15);
-	cout << "------------------------";
-	console.gotoXY(82, 16);
-	cout << "------------------------";
-	console.gotoXY(82, 17);
-	cout << "*      Load game       *";
-	console.gotoXY(82, 18);
-	cout << "------------------------";
-	console.gotoXY(82, 19);
-	cout << "------------------------";
-	console.gotoXY(82, 20);
-	cout << "*      Exit game       *";
-	console.gotoXY(82, 21);
-	cout << "------------------------";
-	console.gotoXY(80, 14);
-	cout << ">";*/
 	mtx.unlock();
-
 }
 
 void Buffer2::showOption(int option)
@@ -507,6 +484,27 @@ void Buffer2::displayConfirmExit() {
 	mtx.unlock();
 }
 
+void Buffer2::displayConfirmReset() {
+	int row = 15;
+	int column = 60;
+	mtx.lock();
+	console.setTextColor(Pink);
+	console.gotoXY(column, row++);
+	cout << "----------------------------------------------------------\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "|          Are you sure you want to reset game?          |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "|                 Press Y(yes) or N(no)                  |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "----------------------------------------------------------\n";
+	mtx.unlock();
+}
 void Buffer2::announceComplete() {
 	int row = 15;
 	int column = 60;
@@ -614,7 +612,7 @@ void Buffer2::deleteAnnounceFrame() {
 	console.gotoXY(column, row++);
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-	console.setTextColor(White);
+	console.setTextColor(Cyan);
 	cout << "----------------------------------------------------------\n";
 	console.setTextColor(BlackAll);
 	console.gotoXY(column, row++);
