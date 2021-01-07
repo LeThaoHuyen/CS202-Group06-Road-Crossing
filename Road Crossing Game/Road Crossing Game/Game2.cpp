@@ -23,7 +23,6 @@ void Game2::clearGame() {
 	laneManager.clear();
 }
 void Game2::drawGame(bool isLaneCarRed, bool isLaneTruckRed) {
-	//laneManager.draw(screen);
 	if (isLaneCarRed)
 		laneManager.stopVehicles("car");
 	else laneManager.moveVehicles(currentLevel, "car");
@@ -32,14 +31,11 @@ void Game2::drawGame(bool isLaneCarRed, bool isLaneTruckRed) {
 		laneManager.stopVehicles("truck");
 	else laneManager.moveVehicles(currentLevel, "truck");
 
-	//screen.drawFrame();
 	laneManager.update();
 	laneManager.draw(screen);
 	
 	screen.drawTrafficLight(isLaneCarRed, isLaneTruckRed);
 
-	//player.selfDraw(screen);
-	//std::this_thread::sleep_for(1s);
 	Sleep(1100 - currentLevel*50);
 }
 void Game2::drawPeople()

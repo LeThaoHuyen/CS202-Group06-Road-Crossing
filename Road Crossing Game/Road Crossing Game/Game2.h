@@ -6,7 +6,7 @@
 
 class Game2 {
 public:
-	static const int MAX_LEVEL = 2;
+	static const int MAX_LEVEL = 21;
 	People player;
 private:
 	Buffer2 screen;
