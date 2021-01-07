@@ -25,7 +25,7 @@ public:
 	void update(Buffer& buffer);
 	void draw(Buffer& buffer);
 	bool checkCollision(int, int);
-	bool checkCollision(People& player);
+	bool checkCollision(People& player, bool playSound );
 	bool isVehicleStopped();
 	void init(int level, int laneWidth);
 	void clear();

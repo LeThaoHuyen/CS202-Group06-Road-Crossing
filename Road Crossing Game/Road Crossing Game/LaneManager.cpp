@@ -83,7 +83,7 @@ bool LaneManager::checkCollision(int x, int y)
 	}
 	return false;
 }
-bool LaneManager::checkCollision(People& player)
+bool LaneManager::checkCollision(People& player, bool playSound)
 {
 	int x = player.getX(), y = player.getY();
 
@@ -91,6 +91,9 @@ bool LaneManager::checkCollision(People& player)
 	
 	for (int i = lanes.size() - 1; i > -1; --i) {
 		if (lanes[i]->checkCollision(x, y)) {
+			if (playSound) {
+				lanes[i]->getObject()->makeSound();
+			}
 			return true;
 		}
 	}

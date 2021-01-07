@@ -48,7 +48,7 @@ public:
 	// void processMaxLevel();
 	
 	
-	bool checkCollision();
+	bool checkCollision(bool playSound);
 	void displayMenu();
 	void displayMainMenu();
 	void showOption(int option, int key);

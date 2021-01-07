@@ -37,7 +37,7 @@ void runGame() {
 		game.drawGame(isLaneCarRed, isLaneTruckRed);
 		
 		// Test collision
-		if (game.checkCollision()) {
+		if (game.checkCollision(true)) {
 			game.pauseGame();
 			game.processLose();
 		}
@@ -156,7 +156,7 @@ int main()
 			else if (game.isWin()) {
 				game.printCongrat();
 			}
-			else if (game.checkCollision()) {
+			else if (game.checkCollision(true)) {
 				game.printGameover();
 			}
 			else {
@@ -169,7 +169,7 @@ int main()
 			game.saveGame();
 		}*/
 		
-		else if (key == key_C and (game.isWin() or game.checkCollision())) {
+		else if (key == key_C and (game.isWin() or game.checkCollision(false))) {
 			game.newGame(game.getLevel());
 			t1.detach();
 			t1 = thread(runGame);

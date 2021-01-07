@@ -140,7 +140,7 @@ void Game2::processWin()
 
 void Game2::processLose()
 {
-	if (laneManager.checkCollision(player))
+	if (laneManager.checkCollision(player, true))
 	{
 		PlaySound(TEXT("Sound/GameOver.wav"), NULL, SND_ASYNC);
 		screen.printGameover();
@@ -155,8 +155,8 @@ void Game2::printGameover() {
 	screen.printGameover();
 }
 
-bool Game2::checkCollision() {
-	return laneManager.checkCollision(player);
+bool Game2::checkCollision(bool playSound) {
+	return laneManager.checkCollision(player, playSound);
 }
 
 void Game2::displayMainMenu()
