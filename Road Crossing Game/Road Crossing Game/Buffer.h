@@ -24,6 +24,7 @@ public:
 	Buffer(int, int, int, int);
 	void makeTitle();
 	void printCongrat();
+	void printGameover();
 	void drawCar();
 	void drawTruck();
 	void drawBird();
