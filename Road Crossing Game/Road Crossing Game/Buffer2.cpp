@@ -89,13 +89,13 @@ void Buffer2::displayMenu()
 
 	for (int i = 0; i < 25; i++) {
 		if (i == 0 || i == 24) {
-			for (int j = 11; j <= 17; j += 2) {
+			for (int j = 11; j <= 19; j += 2) {
 				console.gotoXY(i + 1, j);
 				cout << "|";
 			}
 
 		}
-		for (int j = 10; j <= 18; j += 2) {
+		for (int j = 10; j <= 20; j += 2) {
 			console.gotoXY(i + 1, j);
 			cout << "-";
 		}
