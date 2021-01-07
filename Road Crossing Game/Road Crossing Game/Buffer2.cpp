@@ -543,7 +543,7 @@ void Buffer2::announceComplete() {
 }
 
 
-void Buffer2::printCongrat() {
+void Buffer2::printCongrat(bool isMaxLevel) {
 	clearScreen();
 
 	HANDLE  hConsole;
@@ -569,9 +569,16 @@ void Buffer2::printCongrat() {
 		}
 	}
 
-	console.gotoXY(65, 20);
+	console.gotoXY(65, 19);
 	console.setTextColor(White);
-	cout << "Press C to continue or E to exit\n";
+	if (!isMaxLevel) {
+		cout << "Press C to continue or E to exit\n";
+	}
+	else {
+		cout << "You pass the max level!!";
+		console.gotoXY(65, 20);
+		cout << "Press E to exit";
+	}
 	mtx.unlock();
 }
 
