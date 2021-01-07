@@ -192,7 +192,7 @@ void Buffer2::displayMainMenu() {
 	int row = 3;
 	int column = 55;
 	int i, j;
-	for (i = 0; i < 7; ++i) {
+	for (i = 0; i < 8; ++i) {
 		console.gotoXY(column, row++);
 		for (j = 0; j < 82; ++j) {
 			SetConsoleTextAttribute(hConsole, i);
@@ -548,7 +548,7 @@ void Buffer2::printCongrat() {
 	int row = 5;
 	int column = 55;
 	int i, j;
-	for (i = 0; i < 7; ++i) {
+	for (i = 0; i < 8; ++i) {
 		console.gotoXY(column, row++);
 		for (j = 0; j < 82; ++j) {
 			SetConsoleTextAttribute(hConsole, i);
