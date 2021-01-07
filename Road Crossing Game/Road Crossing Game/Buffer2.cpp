@@ -67,7 +67,7 @@ void Buffer2::init(int gw, int gh, int fw, int fh) {
 
 void Buffer2::displayMenu()
 {
-
+	console.setTextColor(Cyan);
 	mtx.lock();
 	for (int i = 0; i < 25; i++) {
 		if (i == 0 || i == 24) {
@@ -81,9 +81,10 @@ void Buffer2::displayMenu()
 		
 	}
 
+	console.setTextColor(Green);
 	console.gotoXY(3, 2);
 	cout << "Level: ";
-	
+	console.setTextColor(Cyan);
 
 
 	for (int i = 0; i < 25; i++) {
@@ -100,6 +101,7 @@ void Buffer2::displayMenu()
 		}
 
 	}
+	console.setTextColor(Green);
 	console.gotoXY(3, 11);
 	cout << "Press S to save";
 	console.gotoXY(3, 13);
@@ -108,6 +110,7 @@ void Buffer2::displayMenu()
 	cout << "Press E to exit";
 	console.gotoXY(3, 17);
 	cout << "Press U to continue";
+	console.setTextColor(Cyan);
 
 	for (int i = 30; i < game_width; i++) {
 		console.gotoXY(i, 1);
@@ -193,12 +196,11 @@ void Buffer2::displayMainMenu() {
 		console.gotoXY(column, row++);
 		for (j = 0; j < 82; ++j) {
 			SetConsoleTextAttribute(hConsole, i);
-			//console.setTextColor(Yellow);
 			cout << Title[i][j];
 		}
 	}
 
-	console.setTextColor(White);
+	console.setTextColor(Cyan);
 	console.gotoXY(82, 13);
 	cout << "------------------------";
 	console.gotoXY(82, 14);
@@ -226,17 +228,17 @@ void Buffer2::showChoice(int option)
 	mtx.lock();
 	if (option == 0) {
 		console.gotoXY(82, 14);
-		console.setTextColor(Red);
+		console.setTextColor(x);
 		cout << "*      New game        *";
 	}
 	else if (option == 1) {
 		console.gotoXY(82, 17);
-		console.setTextColor(Red);
+		console.setTextColor(x);
 		cout << "*      Load game       *";
 	}
 	else if (option == 2) {
 		console.gotoXY(82, 20);
-		console.setTextColor(Red);
+		console.setTextColor(x);
 		cout << "*      Exit game       *";
 	}
 	console.setTextColor(White);
@@ -257,7 +259,7 @@ void Buffer2::clear() {
 void Buffer2::drawFrame() {
 	mtx.lock();
 	console.hideCursor();
-	console.setTextColor(White);
+	console.setTextColor(Cyan);
 	for (int i = 30; i < game_width; i++) {
 		for (int j = 1; j <= 37; j++) {
 			if (board[i][j] != '|' || board[i][j] != '-') {
@@ -327,7 +329,7 @@ void Buffer2::drawObject(int x, int y, string type, int speed) {
 				}
 			}
 		}
-		console.setTextColor(Green);
+		console.setTextColor(Blue);
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < truck[i].length(); j++) {
 				if (x + j >= 30 && x + j < game_width) {
@@ -348,7 +350,7 @@ void Buffer2::drawObject(int x, int y, string type, int speed) {
 				}
 			}
 		}
-		console.setTextColor(Blue);
+		console.setTextColor(Pink);
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < bird[i].length(); j++) {
 				if (x + j >= 30 && x + j < game_width) {
@@ -423,7 +425,7 @@ void Buffer2::drawPeople(int x, int y, int speedX, int speedY, string direction)
 		}
 	}
 
-	console.setTextColor(Cyan);
+	console.setTextColor(White);
 	for (i = 0; i < 3; ++i) {
 		for (j = 0; j < human[i].length(); j++) {
 			console.gotoXY(x + j, y + i);
