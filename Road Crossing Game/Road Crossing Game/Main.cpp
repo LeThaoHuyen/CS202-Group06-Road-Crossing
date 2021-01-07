@@ -41,8 +41,10 @@ void runGame() {
 			game.pauseGame();
 			game.processLose();
 		}
+
 		if (game.isWin()) {
 			game.pauseGame();
+			game.processWin();
 		}
 	}
 }
@@ -61,7 +63,6 @@ void trafficLight() {
 
 		if (currentTime % 13 == 0) {
 			isLaneTruckRed = true;
-			std::this_thread::sleep_for(5s);
 			Sleep(5000);
 		}
 
@@ -152,11 +153,26 @@ int main()
 				}
 				else exit(0);
 			}
+			else if (game.isWin()) {
+				game.processWin();
+			}
+			else if (game.checkCollision()) {
+				game.processLose();
+			}
 			else {
 				game.resumeGame();
 				t1.detach();
 				t1 = thread(runGame);
 			}
+		}
+		/*else if (key == key_Exit and game.isWin()) {
+			game.saveGame();
+		}*/
+		
+		else if (key == key_C and (game.isWin() or game.checkCollision())) {
+			game.newGame(game.getLevel());
+			t1.detach();
+			t1 = thread(runGame);
 		}
 
 		else if (game.isRunning()) {

@@ -47,10 +47,12 @@ void Game2::drawPeople()
 	player.selfDraw(screen);
 }
 
-void Game2::newGame(int level) {
+void Game2::newGame(int level, int x, int y) {
 	currentLevel = level;
 	m_isRunning = true;
 	laneManager.init(level);
+	player.init(x, y);
+
 	screen.displayMenu();
 	screen.drawFrame();
 	player.selfDraw(screen);
@@ -69,6 +71,7 @@ void Game2::pauseGame() {
 void Game2::resumeGame() {
 	m_isRunning = true;
 }
+
 void Game2::saveGame() {
 	screen.displayConfirmSave();
 	int key;
@@ -80,7 +83,7 @@ void Game2::saveGame() {
 			out << currentLevel << " " << player.getX() << " " << player.getY();
 			out.close();
 			screen.announceComplete();
-			Sleep(200);
+			Sleep(300);
 		}
 	}
 	screen.deleteAnnounceFrame();
@@ -107,8 +110,7 @@ void Game2::loadGame() {
 	if (in.is_open()) {
 		int level, x, y;
 		if (in >> level >> x >> y) {
-			player.init(x, y);
-			newGame(level);
+			newGame(level, x, y);
 		}
 		else {
 			// if no saved game, new game at level 1
@@ -130,9 +132,9 @@ void Game2::processWin()
 {
 	if (isWin())
 	{
+		currentLevel++;
 		PlaySound(TEXT("Sound/LevelUp.wav"), NULL, SND_ASYNC);
 		screen.printCongrat();
-		newGame(++currentLevel);
 	}
 }
 
@@ -141,17 +143,7 @@ void Game2::processLose()
 	if (laneManager.checkCollision(player))
 	{
 		PlaySound(TEXT("Sound/GameOver.wav"), NULL, SND_ASYNC);
-		int input = toupper(_getch());
-		if (input == 'y' || input == 'Y')
-		{
-			currentLevel = 1;
-			newGame(currentLevel);
-		}
-		else
-		{
-
-			// exit hoan toan khoi game
-		}	
+		screen.printGameover();
 	}
 }
 

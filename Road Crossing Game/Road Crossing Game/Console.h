@@ -29,6 +29,9 @@ enum ColorCode {
 #define key_UnPause     117
 #define key_Save        115
 #define key_Exit        101
+#define key_Yes         121
+#define key_C           99
+#define key_R           114
 
 class Console
 {

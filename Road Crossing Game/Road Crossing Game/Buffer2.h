@@ -61,6 +61,7 @@ public:
 	void deleteAnnounceFrame();
 	void drawTrafficLight(bool, bool);
 	void printCongrat();
+	void printGameover();
 	void showLevel(int level);
 
 	void clearScreen();

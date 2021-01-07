@@ -30,7 +30,8 @@ public:
 
 	void drawGame(bool, bool);
 	void drawPeople();
-	void newGame(int level);
+
+	void newGame(int level, int x = 96, int y = 34);
 	void resetGame();
 	void pauseGame();
 	void resumeGame();
@@ -47,7 +48,6 @@ public:
 	void displayMenu();
 	void displayMainMenu();
 	void showOption(int option, int key);
-
 
 };
 
