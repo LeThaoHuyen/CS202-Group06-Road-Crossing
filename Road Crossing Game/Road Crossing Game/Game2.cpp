@@ -70,7 +70,7 @@ void Game2::resumeGame() {
 	m_isRunning = true;
 }
 void Game2::saveGame() {
-	screen.displayConfirm();
+	screen.displayConfirmSave();
 	int key;
 	key = _getch();
 	if (key == 121) {
@@ -85,6 +85,22 @@ void Game2::saveGame() {
 	}
 	screen.deleteAnnounceFrame();
 }
+
+bool Game2::exitGame() {
+	screen.displayConfirmExit();
+	int key;
+	key = _getch();
+	if (key == 121) {
+		screen.clearScreen();
+		return true;
+	}
+	else {
+		screen.deleteAnnounceFrame();
+		return false;
+	}
+}
+
+
 void Game2::loadGame() {
 	ifstream in;
 	in.open("save.txt");
@@ -93,10 +109,11 @@ void Game2::loadGame() {
 		if (in >> level >> x >> y) {
 			player.init(x, y);
 			newGame(level);
-			
 		}
 		else {
-			// no game to load
+			// if no saved game, new game at level 1
+			player.init(96, 34);
+			newGame(1);
 		}
 		in.close();
 	}
@@ -132,6 +149,7 @@ void Game2::processLose()
 		}
 		else
 		{
+
 			// exit hoan toan khoi game
 		}	
 	}

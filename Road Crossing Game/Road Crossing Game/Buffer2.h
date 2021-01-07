@@ -55,11 +55,14 @@ public:
 	void clear();
 	int width() { return game_width; }
 
-	void displayConfirm();
+	void displayConfirmSave();
+	void displayConfirmExit();
 	void announceComplete();
 	void deleteAnnounceFrame();
 	void drawTrafficLight(bool, bool);
 	void printCongrat();
 	void showLevel(int level);
+
+	void clearScreen();
 };
 

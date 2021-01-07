@@ -35,6 +35,7 @@ public:
 	void pauseGame();
 	void resumeGame();
 	void saveGame();
+	bool exitGame();
 	void loadGame();
 
 	bool isWin();

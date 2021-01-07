@@ -70,15 +70,12 @@ void trafficLight() {
 	}
 }
 
-int main() 
-{
-	PlaySound(TEXT("Sound/NhacNen.wav"), NULL, SND_ASYNC);
-	/****  menu ****/
+bool mainMenu() {
 	game.displayMainMenu();
-	
+
 	int key;
 	int option = 0;
-	
+
 	while (true) {
 		key = _getch();
 		if (key == key_Enter) {
@@ -98,18 +95,32 @@ int main()
 		}
 	}
 	if (option == 0) {
-		game.newGame(2);
+		game.newGame(1);
+		return true;
 	}
 	else if (option == 1) {
 		game.loadGame();
+		return true;
 	}
 	else if (option == 2) {
-		exit(0);
+
+		return false;
 	}
 	PlaySound(NULL, NULL, SND_ASYNC);
+}
+
+int main() 
+{
+	PlaySound(TEXT("Sound/NhacNen.wav"), NULL, SND_ASYNC);
+	/****  menu ****/
+	
+	if (mainMenu() == false)
+		exit(0);
 
 	thread t1(runGame);
 	thread t2(trafficLight);
+
+	int key;
 	while (true) {
 		key = _getch();
 		if (key == key_Pause) {
@@ -132,25 +143,35 @@ int main()
 		}
 		
 		else if (key == key_Exit) {
-			
+			game.pauseGame();
+			if (game.exitGame()) {
+				if (mainMenu()) {
+					t1.detach();
+					t1 = thread (runGame);
+					//t2 = thread (trafficLight);
+				}
+				else exit(0);
+			}
+			else {
+				game.resumeGame();
+				t1.detach();
+				t1 = thread(runGame);
+			}
 		}
 
 		else if (game.isRunning()) {
 			if (key == key_UpArrow) {
 				game.player.Up();
-				//game.player.selfDraw();
 				game.drawPeople();
 			}
 
 			if (key == key_DownArrow) {
 				game.player.Down();
-				//game.player.selfDraw();
 				game.drawPeople();
 
 			}
 			if (key == key_RightArrow) {
 				game.player.Right();
-				//game.player.selfDraw();
 				game.drawPeople();
 
 			}

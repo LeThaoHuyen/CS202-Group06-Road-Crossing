@@ -458,7 +458,7 @@ void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
 	mtx.unlock();
 }
 
-void Buffer2:: displayConfirm() {
+void Buffer2:: displayConfirmSave() {
 	int row = 15;
 	int column = 70;
 	console.setTextColor(Pink);
@@ -470,6 +470,26 @@ void Buffer2:: displayConfirm() {
 	cout << "|            Are you sure you want to save?              |\n";
 	console.gotoXY(column, row++);
 	cout << "|    This action may overwrite the existing saved game   |\n";
+	console.gotoXY(column, row++);
+	cout << "|                 Press Y(yes) or N(no)                  |\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "----------------------------------------------------------\n";
+}
+
+void Buffer2::displayConfirmExit() {
+	int row = 15;
+	int column = 70;
+	console.setTextColor(Pink);
+	console.gotoXY(column, row++);
+	cout << "----------------------------------------------------------\n";
+	console.gotoXY(column, row++);
+	cout << "|                                                        |\n";
+	console.gotoXY(column, row++);
+	cout << "|            Are you sure you want to exit?              |\n";
+	console.gotoXY(column, row++);
+	cout << "|      Your progress may not be properly saved yet       |\n";
 	console.gotoXY(column, row++);
 	cout << "|                 Press Y(yes) or N(no)                  |\n";
 	console.gotoXY(column, row++);
@@ -495,9 +515,9 @@ void Buffer2::announceComplete() {
 	console.gotoXY(column, row++);
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
-
-	cout << "-----------------------------------------------\n";
+	cout << "----------------------------------------------------------\n";
 }
+
 
 void Buffer2::printCongrat() {
 	HANDLE  hConsole;
@@ -512,19 +532,18 @@ void Buffer2::printCongrat() {
 								   {32,32,'\\','_','_',',','_',178,  32,'\\','_','_','_','/',32,  '|','_',178,32,'|','_','|',       32,'\\','_','_',',',32,178,32,  '|','_',178,32,32,32,      32,'\\','_','_',',','_',178,  32,32,'\\','_','_',178,32,32,32,},
 								   {32,32,32,32,32,32,32,            32,32,32,32,32,32,32,        32,32,32,32,32,32,32,32,          32,178,'_','_','_','/',         32,32,32,32,32,32,         32,32,32,32,32,32,32,         32,32,32,32,32,32,},
 	};
-	Console x;
+	
 	int row = 0;
 	int column = 0;
 	int i, j;
 	for (i = 0; i < 7; ++i) {
-		x.gotoXY(column, row++);
+		console.gotoXY(column, row++);
 		for (j = 0; j < 82; ++j) {
 			SetConsoleTextAttribute(hConsole, i);
 			cout << congrat[i][j];
 		}
 	}
 
-	cout << "----------------------------------------------------------\n";
 }
 
 void Buffer2::showLevel(int level)
@@ -554,4 +573,8 @@ void Buffer2::deleteAnnounceFrame() {
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
 
+}
+
+void Buffer2::clearScreen() {
+	console.clearScreen();
 }
