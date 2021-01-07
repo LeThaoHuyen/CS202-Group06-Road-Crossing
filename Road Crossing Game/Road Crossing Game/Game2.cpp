@@ -147,6 +147,14 @@ void Game2::processLose()
 	}
 }
 
+void Game2 :: printCongrat() {
+	screen.printCongrat();
+}
+
+void Game2::printGameover() {
+	screen.printGameover();
+}
+
 bool Game2::checkCollision() {
 	return laneManager.checkCollision(player);
 }

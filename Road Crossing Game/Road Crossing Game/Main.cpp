@@ -154,10 +154,10 @@ int main()
 				else exit(0);
 			}
 			else if (game.isWin()) {
-				game.processWin();
+				game.printCongrat();
 			}
 			else if (game.checkCollision()) {
-				game.processLose();
+				game.printGameover();
 			}
 			else {
 				game.resumeGame();

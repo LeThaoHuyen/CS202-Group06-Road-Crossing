@@ -42,7 +42,11 @@ public:
 	bool isWin();
 	void processWin();
 	void processLose();
-	// void processPassLevel();
+	void printCongrat();
+	void printGameover();
+	
+	// void processMaxLevel();
+	
 	
 	bool checkCollision();
 	void displayMenu();
