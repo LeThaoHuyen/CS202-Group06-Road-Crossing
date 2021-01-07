@@ -163,7 +163,7 @@ void Lane::clear()
 
 Lane::Lane(int level, string type)
 {
-	laneSpeed = level * 5;
+	laneSpeed = 5;
 	objectType = type;
 
 	if (type == "bird") {
@@ -194,7 +194,7 @@ Lane::Lane(int level, string type)
 	}
 }
 void Lane::init(int level, string type) {
-	laneSpeed = level * 5;
+	laneSpeed = 5;
 	objectType = type;
 
 	if (type == "bird") {
