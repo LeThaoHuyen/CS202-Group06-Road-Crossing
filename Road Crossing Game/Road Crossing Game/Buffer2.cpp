@@ -293,8 +293,23 @@ void Buffer2::drawFrame() {
 			}
 		}
 	}
+	console.setTextColor(Green);
+	console.gotoXY(32, 3);
+	cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+		<< "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+	console.gotoXY(32, 4);
+	cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ";
+	console.setTextColor(x);
+	cout << "FINAL PROJECT";
+	console.setTextColor(Green);
+	cout << " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+	console.gotoXY(32, 5);
+	cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ";
+	console.setTextColor(x);
+	cout << "CS202 - GROUP 6 - 19APCS2";
+	console.setTextColor(Green);
+	cout << " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
 	mtx.unlock();
-
 }
 
 void Buffer2::drawObject(int x, int y, string type, int speed) {
