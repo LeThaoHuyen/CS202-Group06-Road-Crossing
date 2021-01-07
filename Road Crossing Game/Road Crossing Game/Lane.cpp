@@ -213,6 +213,7 @@ void Lane::init(int level, string type) {
 	int coordX;
 	// 5 levels add 1 more
 	for (int i = 0; i < 4 + level / 5; i++) {
+		srand(time(0));
 		coordX = rand() % 47 + list.back()->getX() + list.back()->getLength() + 5;
 		if (type == "bird")
 			list.push_back(new Bird(coordX, 11, laneSpeed, Blue));
@@ -237,6 +238,7 @@ void Lane::draw(Buffer2& buffer) {
 	}
 }
 void Lane::addOne() {
+	srand(time(0));
 	int coordX = list[0]->getX() - list[0]->getLength() + rand()%23 - 43;
 	if (objectType == "bird") {
 		list.insert(list.begin(), new Bird(coordX, 11, laneSpeed, Blue));
