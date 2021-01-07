@@ -464,6 +464,7 @@ void Buffer2::drawTrafficLight(bool isLaneCarRed, bool isLaneTruckRed) {
 void Buffer2:: displayConfirmSave() {
 	int row = 15;
 	int column = 60;
+	mtx.lock();
 	console.setTextColor(Pink);
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
@@ -479,11 +480,13 @@ void Buffer2:: displayConfirmSave() {
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
+	mtx.unlock();
 }
 
 void Buffer2::displayConfirmExit() {
 	int row = 15;
 	int column = 60;
+	mtx.lock();
 	console.setTextColor(Pink);
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
@@ -499,11 +502,13 @@ void Buffer2::displayConfirmExit() {
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
+	mtx.unlock();
 }
 
 void Buffer2::announceComplete() {
 	int row = 15;
 	int column = 60;
+	mtx.lock();
 	console.setTextColor(Pink);
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
@@ -519,6 +524,7 @@ void Buffer2::announceComplete() {
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
+	mtx.unlock();
 }
 
 
@@ -536,7 +542,7 @@ void Buffer2::printCongrat() {
 							   {32,'\\',32,32,178,'_','_','_',  '(',32,'(','_',')',32,')',    '|',32,178,32,'|',32,'|',         '(',32,'(','_',')',32,178,32,   '|',32,178,32,32,32,       '(',32,'(','_',')',32,178,    32,32,'|',32,178,32,},
 							   {32,32,'\\','_','_',',','_',178,  32,'\\','_','_','_','/',32,  '|','_',178,32,'|','_','|',       32,'\\','_','_',',',32,178,32,  '|','_',178,32,32,32,      32,'\\','_','_',',','_',178,  32,32,'\\','_','_',178,32,32,32,},
 							   {32,32,32,32,32,32,32,            32,32,32,32,32,32,32,        32,32,32,32,32,32,32,32,          32,178,'_','_','_','/',         32,32,32,32,32,32,         32,32,32,32,32,32,32,         32,32,32,32,32,32,},};
-	
+	mtx.lock();
 	int row = 5;
 	int column = 55;
 	int i, j;
@@ -551,6 +557,7 @@ void Buffer2::printCongrat() {
 	console.gotoXY(65, 20);
 	console.setTextColor(White);
 	cout << "Press C to continue or E to exit\n";
+	mtx.unlock();
 }
 
 void Buffer2::printGameover() {
@@ -567,7 +574,7 @@ void Buffer2::printGameover() {
 									   {32,'\\','_','_',',',32,'|',  32,'\\','_','_',',','_','|',  '|','_','|',32,'|','_','|',32,'|','_','|',   32,'\\','_','_','_','_',')',             32,32,32,32,32,32,  32,'\\','_','_','_','/',32,     32,32,'\\','_','_','/',32,            32,32,'\\','_','_','_','_',')',     '|','_','|',32,32,32,},
 									   {32,'|','_','_','_','/',         32,32,32,32,32,32,32,          32,32,32,32,32,32,32,32,32,32,              32,32,32,32,32,32,32,32,                 32,32,32,32,32,32,   32,32,32,32,32,32,32,          32,32,32,32,32,32,32,                       32,32,32,32,32,32,32,32,      32,32,32,32,32,32,},
 		};
-
+		mtx.lock();
 		int row = 5;
 		int column = 55;
 		int i, j;
@@ -582,6 +589,7 @@ void Buffer2::printGameover() {
 		console.gotoXY(65, 20);
 		console.setTextColor(White);
 		cout << "Press C to play again or E to exit\n";
+		mtx.unlock();
 }
 
 void Buffer2::showLevel(int level)
@@ -593,6 +601,7 @@ void Buffer2::showLevel(int level)
 void Buffer2::deleteAnnounceFrame() {
 	int row = 15;
 	int column = 60;
+	mtx.lock();
 	console.setTextColor(BlackAll);
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
@@ -610,6 +619,7 @@ void Buffer2::deleteAnnounceFrame() {
 	cout << "|                                                        |\n";
 	console.gotoXY(column, row++);
 	cout << "----------------------------------------------------------\n";
+	mtx.unlock();
 
 }
 

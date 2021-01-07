@@ -31,6 +31,7 @@ Game2 game(2);
 bool isLaneCarRed = false;
 bool isLaneTruckRed = false;
 
+
 // demo
 void runGame() {
 	while (game.isRunning()) {
@@ -40,6 +41,7 @@ void runGame() {
 		if (game.checkCollision(true)) {
 			game.pauseGame();
 			game.processLose();
+
 		}
 
 		if (game.isWin()) {
@@ -169,32 +171,36 @@ int main()
 			game.saveGame();
 		}*/
 		
-		else if (key == key_C and (game.isWin() or game.checkCollision(false))) {
+		else if (key == key_C and (game.isWin() or !game.isRunning())) {
 			game.newGame(game.getLevel());
 			t1.detach();
 			t1 = thread(runGame);
+			
 		}
 
 		else if (game.isRunning()) {
 			if (key == key_UpArrow) {
 				game.player.Up();
 				game.drawPeople();
+				
 			}
 
 			if (key == key_DownArrow) {
 				game.player.Down();
 				game.drawPeople();
+				
 
 			}
 			if (key == key_RightArrow) {
 				game.player.Right();
 				game.drawPeople();
+				
 
 			}
 			if (key == key_LeftArrow) {
 				game.player.Left();
 				game.drawPeople();
-
+				
 			}
 		}
 	}

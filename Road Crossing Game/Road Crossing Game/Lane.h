@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include <iostream>
 #include <vector>
+#include <time.h>
 #include "Buffer.h"
 #include "Bird.h"
 #include "Dinosaur.h"
