@@ -40,7 +40,7 @@ void Game2::drawGame(bool isLaneCarRed, bool isLaneTruckRed) {
 
 	//player.selfDraw(screen);
 	//std::this_thread::sleep_for(1s);
-	Sleep(1000);
+	Sleep(1100 - currentLevel*50);
 }
 void Game2::drawPeople()
 {

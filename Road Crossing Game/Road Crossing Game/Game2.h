@@ -4,6 +4,7 @@
 #include"People.h"
 #include<fstream>
 
+
 class Game2 {
 public:
 	static const int MAX_LEVEL;
