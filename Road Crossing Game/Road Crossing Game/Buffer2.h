@@ -61,7 +61,7 @@ public:
 	void announceComplete();
 	void deleteAnnounceFrame();
 	void drawTrafficLight(bool, bool);
-	void printCongrat();
+	void printCongrat(bool isMaxLevel);
 	void printGameover();
 	void showLevel(int level);
 

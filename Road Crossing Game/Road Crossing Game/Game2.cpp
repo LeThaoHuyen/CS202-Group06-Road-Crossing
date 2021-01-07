@@ -134,11 +134,13 @@ bool Game2::isWin()
 
 void Game2::processWin()
 {
-	if (isWin())
-	{
+	PlaySound(TEXT("Sound/LevelUp.wav"), NULL, SND_ASYNC);
+	if (currentLevel!= MAX_LEVEL)	{
 		currentLevel++;
-		PlaySound(TEXT("Sound/LevelUp.wav"), NULL, SND_ASYNC);
-		screen.printCongrat();
+		screen.printCongrat(false);
+	}
+	else if (currentLevel == MAX_LEVEL) {
+		screen.printCongrat(true);
 	}
 }
 
@@ -151,8 +153,8 @@ void Game2::processLose()
 	}
 }
 
-void Game2 :: printCongrat() {
-	screen.printCongrat();
+void Game2 :: printCongrat(bool isMaxLevel) {
+	screen.printCongrat(isMaxLevel);
 }
 
 void Game2::printGameover() {
@@ -192,3 +194,4 @@ void Game2::resetGame() {
 	}
 	screen.deleteAnnounceFrame();
 }
+

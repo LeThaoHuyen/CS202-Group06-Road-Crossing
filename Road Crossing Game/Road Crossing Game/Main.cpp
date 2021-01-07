@@ -13,9 +13,8 @@ vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
 vector<char> Car::carShape = { (char)220,(char)219,(char)219,(char)220 };
 vector<char> Truck::truckShape = { (char)219, (char)219, (char)220 };
 
-string Buffer :: menu[3] = { "1. NEW GAME", "2. LOAD GAME", "3. EXIT" };
-string Buffer :: in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME", "4. EXIT" };
-
+string Buffer::menu[3] = { "1. NEW GAME", "2. LOAD GAME", "3. EXIT" };
+string Buffer::in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME", "4. EXIT" };
 
 int Bird::length = 9;
 int Dinosaur::length = 8;
@@ -32,7 +31,6 @@ bool isLaneCarRed = false;
 bool isLaneTruckRed = false;
 
 
-// demo
 void runGame() {
 	while (game.isRunning()) {
 		game.drawGame(isLaneCarRed, isLaneTruckRed);
@@ -158,9 +156,9 @@ int main()
 				else exit(0);
 			}
 			else if (game.isWin()) {
-				game.printCongrat();
+				game.printCongrat(game.getLevel()==Game2::MAX_LEVEL);
 			}
-			else if (game.checkCollision(true)) {
+			else if (game.checkCollision(false)) {
 				game.printGameover();
 			}
 			else {
@@ -175,14 +173,6 @@ int main()
 			t1.detach();
 			t1 = thread(runGame);
 			
-		}
-
-		else if (key == key_R) {
-			game.pauseGame();
-			game.resetGame();
-			game.resumeGame();
-			t1.detach();
-			t1 = thread(runGame);
 		}
 
 		else if (game.isRunning()) {
@@ -208,6 +198,13 @@ int main()
 				game.player.Left();
 				game.drawPeople();
 				
+			}
+			if (key == key_R) {
+				game.pauseGame();
+				game.resetGame();
+				game.resumeGame();
+				t1.detach();
+				t1 = thread(runGame);
 			}
 		}
 	}

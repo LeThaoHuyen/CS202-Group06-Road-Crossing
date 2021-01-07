@@ -59,8 +59,6 @@ public:
 	int height() { return c_height; }
 	int midVertical() const { return c_width / 2; }
 	int midHorizontal() const { return c_height / 2; }
-	//string textEdit(int row, int begin, int end);
-
 	
 };
 

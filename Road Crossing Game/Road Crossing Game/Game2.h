@@ -4,17 +4,15 @@
 #include"People.h"
 #include<fstream>
 
-
 class Game2 {
 public:
-	static const int MAX_LEVEL;
+	static const int MAX_LEVEL = 2;
 	People player;
 private:
 	Buffer2 screen;
 	LaneManager laneManager;
 	int currentLevel;
 	int m_isRunning;
-	
 	void clearGame();
 public:
 	Game2();
@@ -44,10 +42,8 @@ public:
 	bool isWin();
 	void processWin();
 	void processLose();
-	void printCongrat();
+	void printCongrat(bool);
 	void printGameover();
-	
-	// void processMaxLevel();
 	
 	
 	bool checkCollision(bool playSound);
