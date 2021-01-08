@@ -1,6 +1,5 @@
 #include "People.h"
 
-
 People::People()
 {
 	mX = mY = 0;
@@ -8,6 +7,7 @@ People::People()
 	speedX = 1;
 	speedY = 1;
 }
+
 People::People(int w, int h)
 {
 	mState = true;
@@ -36,22 +36,22 @@ void People::init(int w, int h) {
 }
 void People::Up()
 {
-	//invisible();
 	if (mY - speedY > 1) {
 		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 		mY -= speedY;
 		direction = "up";
 	}
 }
+
 void People::Down()
 {
-	//invisible();
 	if (mY + speedY < 37) {
 		PlaySound(TEXT("Sound/MovingSound.wav"), NULL, SND_SYNC);
 		mY += speedY;
 		direction = "down";
 	}
 }
+
 void People::Left()
 {
 	if (mX - speedX > frameLeftBorder) {
@@ -61,6 +61,7 @@ void People::Left()
 		direction = "left";
 	}
 }
+
 void People::Right()
 {
 	if (mX + speedX < frameRightBorder) {
@@ -70,6 +71,7 @@ void People::Right()
 		direction = "right";
 	}
 }
+
 void People::Dead()
 {
 	mState = false;
@@ -101,6 +103,7 @@ void People::selfDraw(Buffer2& buffer2)
 {
 	buffer2.drawPeople(mX, mY, speedX, speedY, direction);
 }
+
 People::~People()
 {
 }

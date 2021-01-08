@@ -45,7 +45,6 @@ public:
 	void printCongrat(bool);
 	void printGameover();
 	
-	
 	bool checkCollision(bool playSound);
 	void displayMenu();
 	void displayMainMenu();

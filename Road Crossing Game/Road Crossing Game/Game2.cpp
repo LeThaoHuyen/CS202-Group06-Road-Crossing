@@ -103,7 +103,6 @@ bool Game2::exitGame() {
 	}
 }
 
-
 void Game2::loadGame() {
 	ifstream in;
 	in.open("save.txt");

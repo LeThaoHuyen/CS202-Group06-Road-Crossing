@@ -90,7 +90,6 @@ string Console::getClipboardText() {
 	return text;
 }
 
-
 void Console::setTextColor(ColorCode color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }

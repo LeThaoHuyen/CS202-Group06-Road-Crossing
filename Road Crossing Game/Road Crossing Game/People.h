@@ -23,7 +23,6 @@ public:
 	int getX();
 	int getY();
 	void selfDraw(Buffer2 & buffer2);
-
 private:
 	int mX, mY;
 	bool mState;

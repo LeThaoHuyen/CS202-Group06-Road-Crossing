@@ -1,4 +1,3 @@
-
 #include "GameObject.h"
 #include "Lane.h"
 #include "LaneManager.h"
@@ -7,8 +6,6 @@
 #include "Game2.h"
 #include "thread"
 #include "ctime"
-
-
 
 int Bird::length = 9;
 int Dinosaur::length = 8;
@@ -24,7 +21,6 @@ Game2 game(2);
 bool isLaneCarRed = false;
 bool isLaneTruckRed = false;
 
-
 void runGame() {
 	while (game.isRunning()) {
 		game.drawGame(isLaneCarRed, isLaneTruckRed);
@@ -33,7 +29,6 @@ void runGame() {
 		if (game.checkCollision(true)) {
 			game.pauseGame();
 			game.processLose();
-
 		}
 
 		if (game.isWin()) {
@@ -43,7 +38,6 @@ void runGame() {
 	}
 }
 
-
 void trafficLight() {
 	time_t currentTime;
 
@@ -52,12 +46,12 @@ void trafficLight() {
 
 		if (currentTime % 17 == 0) {
 			isLaneCarRed = true;
-			Sleep(5000);
+			Sleep(2000);
 		}
 
 		if (currentTime % 13 == 0) {
 			isLaneTruckRed = true;
-			Sleep(5000);
+			Sleep(2000);
 		}
 
 		isLaneCarRed = false;
@@ -107,7 +101,6 @@ bool mainMenu() {
 
 int main() 
 {
-	
 	if (mainMenu() == false)
 		exit(0);
 
@@ -145,12 +138,11 @@ int main()
 				if (mainMenu()) {
 					t1.detach();
 					t1 = thread (runGame);
-					//t2 = thread (trafficLight);
 				}
 				else exit(0);
 			}
 			else if (game.isWin()) {
-				game.printCongrat(game.getLevel()==Game2::MAX_LEVEL);
+				game.printCongrat(game.getLevel() == Game2::MAX_LEVEL);
 			}
 			else if (game.checkCollision(false)) {
 				game.printGameover();
@@ -203,6 +195,5 @@ int main()
 		}
 	}
 	
-		
 	return 0;
 }

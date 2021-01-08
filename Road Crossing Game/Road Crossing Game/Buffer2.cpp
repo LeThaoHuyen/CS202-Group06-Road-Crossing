@@ -19,7 +19,6 @@ Buffer2::Buffer2(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(f
 		}
 	}
 
-
 	for (int i = 30; i < game_width; i++) {
 		board[i][1] = board[i][7] = board[i][13] = board[i][19] = board[i][25] = board[i][31] = board[i][37] = '-';
 		if (i == 30 || i == game_width - 1) {
@@ -28,10 +27,8 @@ Buffer2::Buffer2(int gw, int gh, int fw, int fh) :console(gw, gh), frame_width(f
 			}
 		}
 	}
-
-
-
 }
+
 void Buffer2::init(int gw, int gh, int fw, int fh) {
 	console.init(gw, gh);
 	frame_width = fw;
@@ -40,7 +37,6 @@ void Buffer2::init(int gw, int gh, int fw, int fh) {
 	console.fixConsoleWindow();
 
 	game_width = console.width(); // 158
-
 
 	game_height = console.height(); // 63
 
@@ -53,7 +49,6 @@ void Buffer2::init(int gw, int gh, int fw, int fh) {
 			board[i][j] = (char)32;
 		}
 	}
-
 
 	for (int i = 30; i < game_width; i++) {
 		board[i][1] = board[i][7] = board[i][13] = board[i][19] = board[i][25] = board[i][31] = board[i][37] = '-';
@@ -153,6 +148,7 @@ void Buffer2::showOption(int option)
 	}
 	mtx.unlock();
 }
+
 void Buffer2::displayMainMenu() {
 	const char Title[][82] = { { 32,95,95,95,95,95,32,32,     32,32,32,32,32,32,32,		 32,32,32,32,32,32,32,		  32,32,32,32,32,'_',32,	   32,32,32,32,32,  32,32,32,'_','_','_','_',32,	32,32,32,32,32,32,		 32,32,32,32,32,32,32,		 32,32,32,32,32,	   32,32,32,32,32,		 32,32,32,	  32,32,32,32,32,32,32,		   },
 								 { 32,'_',95,95,95,95,32,32,     32,32,32,32,32,32,32,		 32,32,32,32,32,32,32,		  32,32,32,32,32,'_',32,	   32,32,32,32,32,  32,32,32,'_','_','_','_',32,	32,32,32,32,32,32,		 32,32,32,32,32,32,32,		 32,32,32,32,32,	   32,32,32,32,32,		 32,32,32,	  32,32,32,32,32,32,32,		   },
@@ -616,7 +612,7 @@ void Buffer2::printGameover() {
 
 void Buffer2::showLevel(int level)
 {
-	console.setTextColor(Red);
+	console.setTextColor(White);
 	console.gotoXY(10, 2);
 	cout << level;
 }
