@@ -17,7 +17,6 @@ private:
 	ColorCode code;
 public:
 	GameObject(int, int, int, ColorCode);
-	GameObject(int, int, vector<char> & list, int, ColorCode);
 	void move(int, int);
 	void move();
 	std :: string getShape();

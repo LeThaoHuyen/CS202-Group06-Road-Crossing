@@ -8,13 +8,7 @@
 #include "thread"
 #include "ctime"
 
-vector<char> Bird::birdShape = { (char)223, (char)220, (char)223 };
-vector<char> Dinosaur::dinoShape = { (char)220, (char)219, (char)223 };
-vector<char> Car::carShape = { (char)220,(char)219,(char)219,(char)220 };
-vector<char> Truck::truckShape = { (char)219, (char)219, (char)220 };
 
-//string Buffer::menu[3] = { "1. NEW GAME", "2. LOAD GAME", "3. EXIT" };
-//string Buffer::in_game_menu[4] = { "1. CONTINUE", "2. NEW GAME", "3. SAVE GAME", "4. EXIT" };
 
 int Bird::length = 9;
 int Dinosaur::length = 8;

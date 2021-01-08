@@ -21,13 +21,8 @@ private:
 	string trafficLight;
 public:
 	LaneManager() = default;
-	LaneManager(int, int);
-	//void update(Buffer& buffer);
-	//void draw(Buffer& buffer);
-	bool checkCollision(int, int);
 	bool checkCollision(People& player, bool playSound );
 	bool isVehicleStopped();
-	void init(int level, int laneWidth);
 	void clear();
 
 	/*** control vehicle traffic ***/

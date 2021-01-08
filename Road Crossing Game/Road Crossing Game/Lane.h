@@ -19,18 +19,12 @@ private:
 	int lanePart;
 public:
 	Lane(){}
-	Lane(int level, string type, int _lanePart);
-	void add();
-	void createObject(int level, string type, int lanePart);
 	bool checkCollision(int, int);
 	void changeSpeed(int speed);
 	string type();
 	void init(int level, string type, int _lanePart);
 	void clear();
-
-	/*** new version ***/
 	Lane(int level, string type);
-	void createObjects(int level, string type);
 	void update();
 	void draw(Buffer2& buffer);
 	void addOne();
