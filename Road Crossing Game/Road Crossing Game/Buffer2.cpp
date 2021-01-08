@@ -67,8 +67,8 @@ void Buffer2::init(int gw, int gh, int fw, int fh) {
 
 void Buffer2::displayMenu()
 {
-	console.setTextColor(Cyan);
 	mtx.lock();
+	console.setTextColor(Cyan);
 	for (int i = 0; i < 25; i++) {
 		if (i == 0 || i == 24) {
 			console.gotoXY(i + 1, 2);
@@ -616,6 +616,7 @@ void Buffer2::printGameover() {
 
 void Buffer2::showLevel(int level)
 {
+	console.setTextColor(Red);
 	console.gotoXY(10, 2);
 	cout << level;
 }
