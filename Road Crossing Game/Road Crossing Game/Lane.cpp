@@ -68,12 +68,12 @@ bool Lane::checkCollision(int x, int y)
 	return false;
 }
 
-void Lane::draw(Buffer& buffer)
-{
-	for (int i = 0; i < list.size(); i++)
-		list[i]->draw(buffer);
-
-}
+//void Lane::draw(Buffer& buffer)
+//{
+//	for (int i = 0; i < list.size(); i++)
+//		list[i]->draw(buffer);
+//
+//}
 
 void Lane::changeSpeed(int speed)
 {
@@ -84,23 +84,23 @@ void Lane::changeSpeed(int speed)
 	}
 }
 
-void Lane::update(Buffer& buffer)
-{
-	for (int i = 0; i < list.size(); i++)
-	{
-		list[i]->move();
-	}
-
-
-	if (list.size() != 0 && !list[list.size() - 1]->isOnScreen(buffer))
-	{
-		delete list[list.size() - 1];
-		list.pop_back();
-		add();
-	}
-
-
-}
+//void Lane::update(Buffer& buffer)
+//{
+//	for (int i = 0; i < list.size(); i++)
+//	{
+//		list[i]->move();
+//	}
+//
+//
+//	if (list.size() != 0 && !list[list.size() - 1]->isOnScreen(buffer))
+//	{
+//		delete list[list.size() - 1];
+//		list.pop_back();
+//		add();
+//	}
+//
+//
+//}
 
 string Lane::type()
 {

@@ -34,11 +34,11 @@ void GameObject::move()
 
 
 
-void GameObject::draw(Buffer& buffer)
-{
-	if (isOnScreen(buffer))
-		buffer.updateBuffer(mX, mY, "", speed, code);
-}
+//void GameObject::draw(Buffer& buffer)
+//{
+//	if (isOnScreen(buffer))
+//		buffer.updateBuffer(mX, mY, "", speed, code);
+//}
 
 bool GameObject::checkCollision(GameObject& other)
 {
@@ -54,12 +54,12 @@ bool GameObject::checkCollision(int x, int y)
 	return false;
 }
 
-bool GameObject::isOnScreen(Buffer& buffer)
-{
-	if (mX > buffer.bufferWidth() - 1)
-		return false;
-	return true;
-}
+//bool GameObject::isOnScreen(Buffer& buffer)
+//{
+//	if (mX > buffer.bufferWidth() - 1)
+//		return false;
+//	return true;
+//}
 
 int GameObject::getLength()
 {

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
-#include "Buffer.h"
 #include "Bird.h"
 #include "Dinosaur.h"
 #include "Car.h"
@@ -24,9 +23,7 @@ public:
 	void add();
 	void createObject(int level, string type, int lanePart);
 	bool checkCollision(int, int);
-	void draw(Buffer& buffer);
 	void changeSpeed(int speed);
-	void update(Buffer& buffer);
 	string type();
 	void init(int level, string type, int _lanePart);
 	void clear();

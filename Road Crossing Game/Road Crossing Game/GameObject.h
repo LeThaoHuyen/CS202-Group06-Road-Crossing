@@ -5,7 +5,6 @@
 #include <string>
 #include <cstring>
 #include <windows.h>
-#include "Buffer.h"
 #include "Buffer2.h"
 
 class GameObject
@@ -24,12 +23,12 @@ public:
 	std :: string getShape();
 	int getX() { return mX; }
 	int getY() { return mY; }
-	void draw(Buffer& buffer);
 	bool checkCollision(GameObject& other);
+
 	virtual bool checkCollision(int, int);
 	virtual void makeSound() = 0;
-	bool isOnScreen(Buffer& buffer);
 	virtual int getLength();
+
 	int getSpeed();
 	void changeSpeed(int );
 	void setX(int x) { mX = x; }

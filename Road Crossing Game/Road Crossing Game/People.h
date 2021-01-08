@@ -1,5 +1,4 @@
 #pragma once
-#include "Buffer.h"
 #include "GameObject.h"
 #include <iostream>
 using namespace std;
@@ -23,11 +22,8 @@ public:
 	string getShape();
 	int getX();
 	int getY();
-	//void selfDraw();
-	void draw(Buffer& buffer);
-	bool isOnScreen(Buffer& buffer);
-	void invisible(Buffer2 & buffer);
 	void selfDraw(Buffer2 & buffer2);
+
 private:
 	int mX, mY;
 	bool mState;

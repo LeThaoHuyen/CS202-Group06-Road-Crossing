@@ -25,34 +25,34 @@ LaneManager::LaneManager(int level, int laneWidth)
 	}
 }
 
-void LaneManager::update(Buffer& buffer)
-{
-	for (int i = 0; i < lanes.size(); i++)
-	{
-
-		lanes[i]->update(buffer);
-	}
-}
-
-void LaneManager::draw(Buffer& buffer)
-{
-	for (int i = 0; i < lanes.size(); i++)
-	{
-		lanes[i]->draw(buffer);
-		if (i == 2){
-			buffer.updateBuffer(1, 15, (char)220);
-			buffer.updateBuffer(1, 16, (char)220);
-			buffer.setColor(1, 16, Green);
-		}
-		else if (i == 3) {
-			buffer.updateBuffer(buffer.bufferWidth()-2, 20 , (char)220);
-			buffer.updateBuffer(buffer.bufferWidth()-2, 21, (char)220);
-			buffer.setColor(buffer.bufferWidth() - 2 , 21, Green);
-			
-		}
-	}
-
-}
+//void LaneManager::update(Buffer& buffer)
+//{
+//	for (int i = 0; i < lanes.size(); i++)
+//	{
+//
+//		lanes[i]->update(buffer);
+//	}
+//}
+//
+//void LaneManager::draw(Buffer& buffer)
+//{
+//	for (int i = 0; i < lanes.size(); i++)
+//	{
+//		lanes[i]->draw(buffer);
+//		if (i == 2){
+//			buffer.updateBuffer(1, 15, (char)220);
+//			buffer.updateBuffer(1, 16, (char)220);
+//			buffer.setColor(1, 16, Green);
+//		}
+//		else if (i == 3) {
+//			buffer.updateBuffer(buffer.bufferWidth()-2, 20 , (char)220);
+//			buffer.updateBuffer(buffer.bufferWidth()-2, 21, (char)220);
+//			buffer.setColor(buffer.bufferWidth() - 2 , 21, Green);
+//			
+//		}
+//	}
+//
+//}
 // **** check collision ****
 bool LaneManager::checkCollision(int x, int y)
 {

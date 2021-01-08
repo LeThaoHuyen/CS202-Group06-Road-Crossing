@@ -1,5 +1,5 @@
 #pragma once
-#include "Buffer.h"
+
 #include "GameObject.h"
 #include <iostream>
 #include "Lane.h"
@@ -22,8 +22,8 @@ private:
 public:
 	LaneManager() = default;
 	LaneManager(int, int);
-	void update(Buffer& buffer);
-	void draw(Buffer& buffer);
+	//void update(Buffer& buffer);
+	//void draw(Buffer& buffer);
 	bool checkCollision(int, int);
 	bool checkCollision(People& player, bool playSound );
 	bool isVehicleStopped();

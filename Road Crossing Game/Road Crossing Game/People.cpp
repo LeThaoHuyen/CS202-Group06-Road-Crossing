@@ -96,15 +96,15 @@ string People::getShape()
 {
 	return shape;
 }
-void People :: draw(Buffer& buffer)
-{
-	buffer.updateBuffer(mX, mY, shape, 0, Green);
-}
-
-bool People :: isOnScreen(Buffer& buffer)
-{
-	return mX >= 0 && mX < buffer.bufferWidth();
-}
+//void People :: draw(Buffer& buffer)
+//{
+//	buffer.updateBuffer(mX, mY, shape, 0, Green);
+//}
+//
+//bool People :: isOnScreen(Buffer& buffer)
+//{
+//	return mX >= 0 && mX < buffer.bufferWidth();
+//}
 //void People::selfDraw() {
 //	mtx.lock();
 //	HANDLE  hConsole;
